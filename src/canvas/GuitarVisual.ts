@@ -1,6 +1,7 @@
-import { Canvas } from './Canvas';
-import { Visual } from './Visual';
+import { Visual } from './util/Visual';
 import { GUITAR_STRING, GuitarString } from './GuitarString';
+
+const DRAW_SPEED = 6;
 
 const GUITAR_STRING_COUNT = 6;
 const GUITAR_STRING_GAP = GUITAR_STRING.MAX_OFFSET_X / 2 + 24;
@@ -22,7 +23,9 @@ export class GuitarVisual extends Visual {
       const halfWidth = this.W / 2;
       const halfNeck = NECK_WIDTH / 2;
       const stringPosition = i * GUITAR_STRING_GAP + i * GUITAR_STRING.WIDTH;
-      const guitarString = new GuitarString(this, halfWidth - halfNeck + stringPosition, i === GUITAR_STRING_COUNT - 1);
+      const absolutePosition = halfWidth - halfNeck + stringPosition;
+      const isEndString = i === GUITAR_STRING_COUNT - 1;
+      const guitarString = new GuitarString(this, absolutePosition, isEndString);
       this.strings.push(guitarString);
     }
   }
@@ -30,7 +33,7 @@ export class GuitarVisual extends Visual {
   drawFrame() {
     this.drawBackground();
     this.strings.forEach((s) => {
-      for (let i = 0; i < 6; ++i) {
+      for (let i = 0; i < DRAW_SPEED; ++i) {
         s.move();
       }
       s.draw();
@@ -38,16 +41,6 @@ export class GuitarVisual extends Visual {
   }
 
   drawBackground() {
-    // TODO:
-    // this.ctx.clearRect(0, 0, this.W, this.H);
-    Canvas.draw(this.ctx, {
-      layers: [
-        {
-          id: 'background',
-          strokes: [['rect', 0, 0, this.W, this.H]],
-          fillStyle: '#1f0d02',
-        },
-      ],
-    });
+    this.ctx.clearRect(0, 0, this.W, this.H);
   }
 }

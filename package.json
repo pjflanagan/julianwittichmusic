@@ -1,18 +1,19 @@
 {
   "name": "julianwittichmusic",
   "scripts": {
-    "dev-ts": "npx tsc --watch",
+    "dev-webpack": "npx webpack --watch",
     "dev-scss": "npx sass --watch ./src/style.scss ./dist/style.css",
-    "dev": "npm run dev-ts & npm run dev-scss",
-    "build-ts": "npx tsc",
+    "dev": "npm run dev-webpack & npm run dev-scss",
+    "build-webpack": "npx webpack",
     "build-scss": "npx sass ./src/style.scss ./dist/style.css",
     "build": "npm run build-ts && npm run build-scss",
-    "serve": "python3 -m http.server 8000",
-    "open": "open http://localhost:8000/",
-    "start": "npm run serve & npm run open"
+    "open": "open ./index.html"
   },
   "devDependencies": {
     "sass": "^1.77.4",
-    "typescript": "^5.4.5"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }

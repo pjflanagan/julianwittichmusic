@@ -1,8 +1,8 @@
-import { Canvas } from './Canvas';
+import { Canvas } from './util/Canvas';
+import { LayerInstruction } from './util/canvasTypes';
+import { Geometry, Point } from './util/Geometry';
+import { Motion } from './util/Motion';
 import type { GuitarVisual } from './GuitarVisual';
-import { Motion } from './Motion';
-import { Geometry, Point } from './Geometry';
-import { LayerInstruction } from './types';
 
 export const GUITAR_STRING = {
   OFFSCREEN: 120,
@@ -100,10 +100,9 @@ export class GuitarString {
         ['lineTo', 0, 0],
       ],
       lineWidth: GUITAR_STRING.WIDTH,
-      fillStyle: '#00f',
+      fillStyle: '#120701', // TODO: this it the background color https://medium.com/@christian.tonye_16869/scss-variables-in-react-typescript-components-de19d7f96245 (importings scss vars)
     }] : [];
-    Canvas.draw(
-      this.visual.getContext(), {
+    Canvas.draw(this.visual.getContext(), {
       position: this.position,
       layers: [
         ...endStringBlockerLayer,
@@ -128,7 +127,6 @@ export class GuitarString {
         //   fillStyle: '#0f0'
         // }
       ]
-    }
-    );
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { GuitarVisual } from "canvas/GuitarVisual";
+import { GuitarVisual } from "./canvas/GuitarVisual";
 
 function main() {
   const canvasElement = document.getElementById('canvas') as HTMLCanvasElement;

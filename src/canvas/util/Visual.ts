@@ -1,6 +1,4 @@
 import { Geometry, Point } from "./Geometry";
-import { Motion } from "./Motion";
-
 
 export class Visual {
   static visualName: string;
@@ -49,11 +47,11 @@ export class Visual {
   }
 
   setup() {
-    throw 'Method needs to be implemented by child of Canvas.';
+    throw 'Method needs to be implemented by child of Visual.';
   }
 
   drawFrame() {
-    throw 'Method needs to be implemented by child of Canvas.';
+    throw 'Method needs to be implemented by child of Visual.';
   }
 
   getContext(): CanvasRenderingContext2D {
@@ -118,9 +116,5 @@ export class Visual {
     } else {
       this.start();
     }
-  }
-
-  isPointInBounds(point: Point) {
-    return Motion.isInBounds(point, { x: this.W, y: this.H }, { x: 0, y: 0 });
   }
 }

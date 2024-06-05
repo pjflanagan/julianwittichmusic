@@ -5,7 +5,7 @@ import type {
   LayerInstruction,
   LayerModifiers,
   StrokeInstruction,
-} from './types';
+} from './canvasTypes';
 
 function drawStroke(
   ctx: CanvasRenderingContext2D,
