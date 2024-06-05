@@ -7,27 +7,10 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   setupCanvas: () => (/* binding */ setupCanvas)
+/* harmony export */   setupCanvas: () => (/* reexport safe */ _setup__WEBPACK_IMPORTED_MODULE_0__.setupCanvas)
 /* harmony export */ });
-/* harmony import */ var _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _setup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
 
-function setupCanvas() {
-    var canvasElement = document.getElementById('canvas');
-    if (!canvasElement) {
-        throw "Unable to get canvas context";
-    }
-    var context = canvasElement.getContext("2d");
-    canvasElement.width = window.innerWidth;
-    canvasElement.height = window.innerHeight;
-    if (!context) {
-        throw "Unable to get canvas context";
-    }
-    var visual = new _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__.GuitarVisual(context);
-    visual.setup();
-    visual.start();
-    canvasElement.addEventListener('mousemove', visual.handleMouseMove);
-    window.addEventListener('resize', setupCanvas);
-}
 
 
 /***/ }),
@@ -59,7 +42,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 var DRAW_SPEED = 6;
 var GUITAR_STRING_COUNT = 4;
-var GUITAR_STRING_GAP = _GuitarString__WEBPACK_IMPORTED_MODULE_1__.GUITAR_STRING.MAX_OFFSET_X / 2 + 24;
+var GUITAR_STRING_GAP = _GuitarString__WEBPACK_IMPORTED_MODULE_1__.GUITAR_STRING.MAX_OFFSET_X / 2 + 12;
 var NECK_WIDTH = GUITAR_STRING_COUNT * _GuitarString__WEBPACK_IMPORTED_MODULE_1__.GUITAR_STRING.WIDTH + (GUITAR_STRING_COUNT - 1) * GUITAR_STRING_GAP;
 var GuitarVisual = (function (_super) {
     __extends(GuitarVisual, _super);
@@ -253,7 +236,7 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 var GUITAR_STRING = {
     OFFSCREEN: 120,
     MAX_OFFSET_X: 42,
-    WIDTH: 4,
+    WIDTH: 2,
 };
 var GuitarString = (function () {
     function GuitarString(visual, x, isEndString) {
@@ -330,7 +313,7 @@ var GuitarString = (function () {
                         ['quadraticCurveTo', this.pullPoint.x, this.pullPoint.y, 0, maxH],
                     ],
                     lineWidth: GUITAR_STRING.WIDTH,
-                    strokeStyle: '#deddd799',
+                    strokeStyle: _theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.string,
                 },
             ], false)
         });
@@ -467,7 +450,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   background: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.background),
 /* harmony export */   backgroundDark: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.backgroundDark),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   string: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.string)
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
@@ -760,7 +744,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   background: () => (/* binding */ background),
 /* harmony export */   backgroundDark: () => (/* binding */ backgroundDark),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   string: () => (/* binding */ string)
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
@@ -775,6 +760,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
 // Exports
 var background = `#120701`;
 var backgroundDark = `#080300`;
+var string = `#deddd7`;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
@@ -877,6 +863,35 @@ module.exports = function (cssWithMappingToString) {
   };
   return list;
 };
+
+/***/ }),
+/* 18 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setupCanvas: () => (/* binding */ setupCanvas)
+/* harmony export */ });
+/* harmony import */ var _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+function setupCanvas() {
+    var canvasElement = document.getElementById('canvas');
+    if (!canvasElement) {
+        throw "Unable to get canvas context";
+    }
+    var context = canvasElement.getContext("2d");
+    canvasElement.width = window.innerWidth;
+    canvasElement.height = window.innerHeight;
+    if (!context) {
+        throw "Unable to get canvas context";
+    }
+    var visual = new _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__.GuitarVisual(context);
+    visual.setup();
+    visual.start();
+    document.body.addEventListener('mousemove', visual.handleMouseMove);
+    window.addEventListener('resize', setupCanvas);
+}
+
 
 /***/ })
 /******/ 	]);

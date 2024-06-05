@@ -8,7 +8,7 @@ import * as Theme from '../theme.module.scss';
 export const GUITAR_STRING = {
   OFFSCREEN: 120,
   MAX_OFFSET_X: 42,
-  WIDTH: 4,
+  WIDTH: 2,
 }
 
 export class GuitarString {
@@ -114,7 +114,7 @@ export class GuitarString {
             ['quadraticCurveTo', this.pullPoint.x, this.pullPoint.y, 0, maxH],
           ],
           lineWidth: GUITAR_STRING.WIDTH,
-          strokeStyle: '#deddd799',
+          strokeStyle: Theme.string,
         },
         // DEBUG:
         // {

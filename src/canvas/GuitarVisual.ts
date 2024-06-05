@@ -4,7 +4,7 @@ import { GUITAR_STRING, GuitarString } from './GuitarString';
 const DRAW_SPEED = 6;
 
 const GUITAR_STRING_COUNT = 4;
-const GUITAR_STRING_GAP = GUITAR_STRING.MAX_OFFSET_X / 2 + 24;
+const GUITAR_STRING_GAP = GUITAR_STRING.MAX_OFFSET_X / 2 + 12;
 const NECK_WIDTH = GUITAR_STRING_COUNT * GUITAR_STRING.WIDTH + (GUITAR_STRING_COUNT - 1) * GUITAR_STRING_GAP;
 
 export class GuitarVisual extends Visual {

@@ -12,4 +12,5 @@ html, body {
 canvas#canvas {
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
 }

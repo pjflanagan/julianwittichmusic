@@ -1,7 +1,9 @@
 $background: #120701;
 $background-dark: #080300;
+$string: #deddd7;
 
 :export {
   background: $background;
   backgroundDark: $background-dark;
+  string: $string;
 }

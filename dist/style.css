@@ -1,6 +1,7 @@
 :export {
   background: #120701;
   backgroundDark: #080300;
+  string: #deddd7;
 }
 
 html, body {
@@ -15,6 +16,7 @@ html, body {
 canvas#canvas {
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */
