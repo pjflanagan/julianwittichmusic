@@ -3,7 +3,7 @@
   "scripts": {
     "dev-webpack": "npx webpack --watch",
     "dev-scss": "npx sass --watch ./src/style.scss ./dist/style.css",
-    "dev": "npm run dev-webpack & npm run dev-scss",
+    "dev": "npm run dev-webpack & npm run dev-scss & npm run open",
     "build-webpack": "npx webpack",
     "build-scss": "npx sass ./src/style.scss ./dist/style.css",
     "build": "npm run build-ts && npm run build-scss",
