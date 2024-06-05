@@ -1,18 +1,21 @@
-import { Geometry, ZERO_POINT } from './Geometry';
-export class Motion {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Motion = void 0;
+const Geometry_1 = require("./Geometry");
+class Motion {
     static isClose(source, target, threshold) {
         return Math.abs(source - target) < threshold;
     }
     static hasReachedPoint(sourcePoint, targetPoint, threshold) {
-        return Geometry.distance(sourcePoint, targetPoint) < threshold;
+        return Geometry_1.Geometry.distance(sourcePoint, targetPoint) < threshold;
     }
-    static isInBounds(pos, upperBounds, lowerBounds = ZERO_POINT) {
+    static isInBounds(pos, upperBounds, lowerBounds = Geometry_1.ZERO_POINT) {
         return (pos.x > lowerBounds.x &&
             pos.x < upperBounds.x &&
             pos.y > lowerBounds.y &&
             pos.y < upperBounds.y);
     }
-    static isOutOfBounds(pos, upperBounds, lowerBounds = ZERO_POINT) {
+    static isOutOfBounds(pos, upperBounds, lowerBounds = Geometry_1.ZERO_POINT) {
         return !Motion.isInBounds(pos, upperBounds, lowerBounds);
     }
     static getPointInDirection(cur, angle, radius) {
@@ -41,11 +44,11 @@ export class Motion {
         };
     }
     static rotateTowardsAngleAtSpeed(sourceAngle, targetAngle, rotationSpeed) {
-        const deltaAngle = Geometry.getDeltaAngle(sourceAngle, targetAngle);
+        const deltaAngle = Geometry_1.Geometry.getDeltaAngle(sourceAngle, targetAngle);
         if (Math.abs(deltaAngle) < Math.abs(rotationSpeed)) {
             return sourceAngle;
         }
         return sourceAngle - Math.sign(deltaAngle) * rotationSpeed;
     }
 }
-//# sourceMappingURL=Motion.js.map
+exports.Motion = Motion;

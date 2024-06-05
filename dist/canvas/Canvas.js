@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Canvas = void 0;
 function drawStroke(ctx, step, position) {
     const { x, y } = position || { x: 0, y: 0 };
     const [moveType] = step;
@@ -56,7 +59,7 @@ function drawLayer(ctx, layer, position, modifiers) {
         ctx.setLineDash([]);
     }
 }
-export class Canvas {
+class Canvas {
     static draw(ctx, instructions, modifiers) {
         const drawingPosition = (modifiers === null || modifiers === void 0 ? void 0 : modifiers.position) || instructions.position;
         instructions.layers.forEach((l) => {
@@ -66,4 +69,4 @@ export class Canvas {
         });
     }
 }
-//# sourceMappingURL=Canvas.js.map
+exports.Canvas = Canvas;

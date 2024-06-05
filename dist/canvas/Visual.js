@@ -1,6 +1,9 @@
-import { Geometry } from "./Geometry";
-import { Motion } from "./Motion";
-export class Visual {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Visual = void 0;
+const Geometry_1 = require("./Geometry");
+const Motion_1 = require("./Motion");
+class Visual {
     constructor(context) {
         this.ctx = context;
         this.isRunning = false;
@@ -9,7 +12,7 @@ export class Visual {
         this.H = window.innerHeight;
         this.shorterSideLength = Math.min(this.W, this.H);
         this.longerSideLength = Math.max(this.W, this.H);
-        this.diagonalLength = Geometry.distance({ x: 0, y: 0 }, { x: this.W, y: this.H });
+        this.diagonalLength = Geometry_1.Geometry.distance({ x: 0, y: 0 }, { x: this.W, y: this.H });
         this.handleMouseMove = this.handleMouseMove.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
         this.handleMouseDown = this.handleMouseDown.bind(this);
@@ -82,7 +85,7 @@ export class Visual {
         }
     }
     isPointInBounds(point) {
-        return Motion.isInBounds(point, { x: this.W, y: this.H }, { x: 0, y: 0 });
+        return Motion_1.Motion.isInBounds(point, { x: this.W, y: this.H }, { x: 0, y: 0 });
     }
 }
-//# sourceMappingURL=Visual.js.map
+exports.Visual = Visual;

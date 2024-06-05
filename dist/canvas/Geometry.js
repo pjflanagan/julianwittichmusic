@@ -1,5 +1,8 @@
-export const ZERO_POINT = { x: 0, y: 0 };
-export class Geometry {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Geometry = exports.ZERO_POINT = void 0;
+exports.ZERO_POINT = { x: 0, y: 0 };
+class Geometry {
     static difference(a, b) {
         return {
             x: a.x - b.x,
@@ -41,4 +44,4 @@ export class Geometry {
         return a.x === b.x && a.y === b.y;
     }
 }
-//# sourceMappingURL=Geometry.js.map
+exports.Geometry = Geometry;

@@ -1,10 +1,13 @@
-import { Canvas } from './Canvas';
-import { Visual } from './Visual';
-import { GUITAR_STRING, GuitarString } from './GuitarString';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GuitarVisual = void 0;
+const Canvas_1 = require("./Canvas");
+const Visual_1 = require("./Visual");
+const GuitarString_1 = require("./GuitarString");
 const GUITAR_STRING_COUNT = 4;
-const GUITAR_STRING_GAP = GUITAR_STRING.MAX_OFFSET_X / 2 + 24;
-const NECK_WIDTH = GUITAR_STRING_COUNT * (GUITAR_STRING.WIDTH + GUITAR_STRING_GAP);
-export class GuitarVisual extends Visual {
+const GUITAR_STRING_GAP = GuitarString_1.GUITAR_STRING.MAX_OFFSET_X / 2 + 24;
+const NECK_WIDTH = GUITAR_STRING_COUNT * (GuitarString_1.GUITAR_STRING.WIDTH + GUITAR_STRING_GAP);
+class GuitarVisual extends Visual_1.Visual {
     constructor(context) {
         super(context);
         this.strings = [];
@@ -14,7 +17,7 @@ export class GuitarVisual extends Visual {
             const halfWidth = this.W / 2;
             const halfNeck = NECK_WIDTH / 2;
             const stringPosition = i * GUITAR_STRING_GAP;
-            const guitarString = new GuitarString(this, halfWidth - halfNeck + stringPosition);
+            const guitarString = new GuitarString_1.GuitarString(this, halfWidth - halfNeck + stringPosition);
             this.strings.push(guitarString);
         }
     }
@@ -28,7 +31,7 @@ export class GuitarVisual extends Visual {
         });
     }
     drawBackground() {
-        Canvas.draw(this.ctx, {
+        Canvas_1.Canvas.draw(this.ctx, {
             layers: [
                 {
                     id: 'background',
@@ -39,6 +42,6 @@ export class GuitarVisual extends Visual {
         });
     }
 }
+exports.GuitarVisual = GuitarVisual;
 GuitarVisual.visualName = 'Guitar';
 GuitarVisual.visualLink = 'guitar';
-//# sourceMappingURL=GuitarVisual.js.map
