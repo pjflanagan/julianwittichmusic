@@ -1,0 +1,16 @@
+{
+  "name": "julianwittichmusic",
+  "scripts": {
+    "dev-ts": "npx tsc --watch",
+    "dev-scss": "npx sass --watch ./src/style.scss ./dist/style.css",
+    "dev": "npm run dev-ts & npm run dev-scss",
+    "build-ts": "npx tsc",
+    "build-scss": "npx sass ./src/style.scss ./dist/style.css",
+    "build": "npm run build-ts && npm run build-scss",
+    "open": "open ./index.html"
+  },
+  "devDependencies": {
+    "sass": "^1.77.4",
+    "typescript": "^5.4.5"
+  }
+}
