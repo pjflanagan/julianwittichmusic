@@ -10,7 +10,10 @@
     "open": "open ./index.html"
   },
   "devDependencies": {
+    "css-loader": "^7.1.2",
     "sass": "^1.77.4",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0",

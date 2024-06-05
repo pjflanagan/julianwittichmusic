@@ -1,6 +1,20 @@
+:export {
+  background: #120701;
+  backgroundDark: #080300;
+}
+
 html, body {
-  width: 100%;
-  box-sizing: border-box;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  background: #080300;
+}
+
+canvas#canvas {
+  width: 100vw;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */

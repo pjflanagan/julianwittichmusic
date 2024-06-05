@@ -7,6 +7,7 @@
     "baseUrl": "./src",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "removeComments": true,
     "alwaysStrict": true,
     "allowUnreachableCode": false,
     "noImplicitAny": true,

@@ -3,6 +3,7 @@ import { LayerInstruction } from './util/canvasTypes';
 import { Geometry, Point } from './util/Geometry';
 import { Motion } from './util/Motion';
 import type { GuitarVisual } from './GuitarVisual';
+import * as Theme from '../theme.module.scss';
 
 export const GUITAR_STRING = {
   OFFSCREEN: 120,
@@ -100,7 +101,7 @@ export class GuitarString {
         ['lineTo', 0, 0],
       ],
       lineWidth: GUITAR_STRING.WIDTH,
-      fillStyle: '#120701', // TODO: this it the background color https://medium.com/@christian.tonye_16869/scss-variables-in-react-typescript-components-de19d7f96245 (importings scss vars)
+      fillStyle: Theme.background,
     }] : [];
     Canvas.draw(this.visual.getContext(), {
       position: this.position,
