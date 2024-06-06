@@ -1,0 +1,20 @@
+
+.social-icon-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  a {
+    img {
+      margin: 8px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}

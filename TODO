@@ -1,4 +1,5 @@
 - [x] install webpack https://webpack.js.org/guides/typescript/
+- [ ] setup so that the content is served and not just opened
 - [ ] start with the mobile version first
 
 

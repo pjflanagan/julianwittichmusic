@@ -33,19 +33,59 @@ div.sidebar {
     display: inline;
   }
 
-  $sidebar-left: calc(50vw + $guitar-neck-width / 2 + $sidebar-guitar-offset);
   div.slideshow {
     width: $sidebar-left;
   }
 
   $sidebar-width: calc(100vw - $sidebar-left);
+
   div.sidebar {
     position: fixed;
     top: 0;
     left: $sidebar-left;
     width: $sidebar-width;
     height: 100%;
+    padding: 0 $sidebar-padding 0 $sidebar-guitar-offset;
     box-shadow: -140px 0px 80px 9px #0008;
-    padding: $sidebar-padding $sidebar-padding $sidebar-padding $sidebar-guitar-offset;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    div.sidebar-content {
+      margin: 0 auto;
+      max-width: 540px;
+
+      section {
+        padding: 24px 0;
+      }
+
+      section#intro {
+        min-height: 100%;
+        border: 1px solid #0000;
+
+        div.intro-content {
+          margin-top: 50vh;
+          transform: translateY(-100%);
+        }
+      }
+
+      section#bio {
+        iframe {
+          margin: 12px 0;
+        }
+      }
+
+      section#footer {
+        text-align: center;
+        color: #fff3;
+
+        a {
+          color: #fff3;
+
+          &:hover {
+            color: #fff4;
+          }
+        }
+      }
+    }
   }
 }

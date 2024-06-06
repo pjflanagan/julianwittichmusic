@@ -1,8 +1,13 @@
-$background: #0b0400;
+// $background: #1d2731;
+// this is the color of the Spotify player
+$background: #282828;
 $background-dark: #080300;
-$stringColor: #e8e6d7eb;
+$string-color: #f3f3ed;
+$string-color-transparent: #f3f3ed44;
+$gold-gradient: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #FDB931 8%, #d49e27 30%, #cda11d 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #f5f2a8 0%, #FFFFAC 8%, #D1B464 25%, #be9d13 62.5%, #baa316 100%);
+$neon-teal: #18e8bc;
 
-$md-breakpoint: 680px;
+$md-breakpoint: 720px;
 
 $guitar-string-width: 2px;
 $guitar-string-gap: 18px;
@@ -11,21 +16,24 @@ $guitar-neck-width: calc(
   $guitar-string-count * $guitar-string-width
     + ($guitar-string-count - 1) * $guitar-string-gap
 );
-$guitar-max-offset-x: 42px;
+$guitar-max-offset-x: 38px;
+$guitar-position-x-percent: 58vw;
 
 $sidebar-padding: $guitar-max-offset-x;
 $sidebar-guitar-offset: calc($sidebar-padding / 2);
+$sidebar-left: calc($guitar-position-x-percent + ($guitar-neck-width / 2 + $sidebar-guitar-offset)/1);
 
 :export {
   background: $background;
   backgroundDark: $background-dark;
-  stringColor: $stringColor;
+  stringColor: $string-color;
 
   guitarStringWidth: $guitar-string-width;
   guitarStringGap: $guitar-string-gap;
   guitarStringCount: $guitar-string-count;
   guitarNeckWidth: $guitar-neck-width;
   guitarMaxOffsetX: $guitar-max-offset-x;
+  guitarPositionXPercent: $guitar-position-x-percent;
 
   sidebarGuitarOffset: $sidebar-guitar-offset;
 }

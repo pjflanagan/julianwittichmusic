@@ -75,6 +75,7 @@ var DRAW_SPEED = 6;
 var GUITAR_STRING_COUNT = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringCount);
 var GUITAR_STRING_GAP = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringGap);
 var NECK_WIDTH = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarNeckWidth);
+var GUITAR_POSTION_X_PERCENT = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarPositionXPercent) / 100;
 var GuitarVisual = (function (_super) {
     __extends(GuitarVisual, _super);
     function GuitarVisual(context) {
@@ -84,10 +85,10 @@ var GuitarVisual = (function (_super) {
     }
     GuitarVisual.prototype.setup = function () {
         for (var i = 0; i < GUITAR_STRING_COUNT; ++i) {
-            var halfWidth = this.W / 2;
+            var guitarPosition = this.W * GUITAR_POSTION_X_PERCENT;
             var halfNeck = NECK_WIDTH / 2;
             var stringPosition = i * GUITAR_STRING_GAP + i * _GuitarString__WEBPACK_IMPORTED_MODULE_1__.GUITAR_STRING.WIDTH;
-            var absolutePosition = halfWidth - halfNeck + stringPosition;
+            var absolutePosition = guitarPosition - halfNeck + stringPosition;
             var isEndString = i === GUITAR_STRING_COUNT - 1;
             var guitarString = new _GuitarString__WEBPACK_IMPORTED_MODULE_1__.GuitarString(this, absolutePosition, isEndString);
             this.strings.push(guitarString);
@@ -485,6 +486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   guitarMaxOffsetX: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarMaxOffsetX),
 /* harmony export */   guitarNeckWidth: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarNeckWidth),
+/* harmony export */   guitarPositionXPercent: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarPositionXPercent),
 /* harmony export */   guitarStringCount: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarStringCount),
 /* harmony export */   guitarStringGap: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarStringGap),
 /* harmony export */   guitarStringWidth: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarStringWidth),
@@ -785,6 +787,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   guitarMaxOffsetX: () => (/* binding */ guitarMaxOffsetX),
 /* harmony export */   guitarNeckWidth: () => (/* binding */ guitarNeckWidth),
+/* harmony export */   guitarPositionXPercent: () => (/* binding */ guitarPositionXPercent),
 /* harmony export */   guitarStringCount: () => (/* binding */ guitarStringCount),
 /* harmony export */   guitarStringGap: () => (/* binding */ guitarStringGap),
 /* harmony export */   guitarStringWidth: () => (/* binding */ guitarStringWidth),
@@ -802,15 +805,16 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
 // Exports
-var background = `#0b0400`;
+var background = `#282828`;
 var backgroundDark = `#080300`;
-var stringColor = `rgba(232, 230, 215, 0.9215686275)`;
+var stringColor = `#f3f3ed`;
 var guitarStringWidth = `2px`;
 var guitarStringGap = `18px`;
 var guitarStringCount = `4`;
 var guitarNeckWidth = `62px`;
-var guitarMaxOffsetX = `42px`;
-var sidebarGuitarOffset = `21px`;
+var guitarMaxOffsetX = `38px`;
+var guitarPositionXPercent = `58vw`;
+var sidebarGuitarOffset = `19px`;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 

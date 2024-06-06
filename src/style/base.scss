@@ -7,7 +7,7 @@ html, body {
   font-family: 'Inter', sans-serif;
   font-weight: 200;
   background: $background-dark;
-  color: $stringColor;
+  color: $string-color;
 }
 
 div {
@@ -15,11 +15,40 @@ div {
 }
 
 h1 {
+  margin: 12px 0 6px 0;
   text-align: center;
   font-family: 'Limelight';
-  font-size: 2em;
+  font-size: 2.8em;
+  color: $neon-teal;
+}
+
+h2 {
+  margin: 12px 0 6px 0;
+  font-family: 'Limelight';
+  font-size: 1.8em;
+  color: $neon-teal;
+}
+
+h4 { // subheading
+  margin: 6px 0;
+  text-align: center;
+  font-size: 0.84em;
+  font-weight: 200;
 }
 
 p {
-  font-size: 0.9em;
+  line-height: 1.6em;
+  font-size: 0.8em;
+}
+
+a {
+  transition: color 0.2s;
+}
+
+hr {
+  width: 50%;
+  height: 1px;
+  background: $string-color-transparent;
+  // background: $gold-gradient;
+  border: none;
 }
