@@ -10,7 +10,43 @@ html, body {
 }
 
 canvas#canvas {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
+}
+
+div.slideshow {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: url(https://coolwalls.ca/cdn/shop/files/bandw-brooklyn-bridge-with-nyc-in-background-wallpaper-peel-n-stick-and-removes-easily-anytime-coolwalls-ca.jpg?v=1692044962);
+  background-size: cover;
+  filter: brightness(28%);
+}
+
+div.sidebar {
+  width: 100%;
+  background: $background;
+}
+
+@media only screen and (min-width: $md-breakpoint) {
+  canvas#canvas {
+    display: inline;
+  }
+
+  div.slideshow {
+    width: 64vw;
+  }
+
+  div.sidebar {
+    position: fixed;
+    left: calc(50vw + $guitar-neck-width);
+    width: 50vw;
+    height: 100%;
+  }
 }

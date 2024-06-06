@@ -1,9 +1,26 @@
 $background: #120701;
 $background-dark: #080300;
-$string: #deddd7;
+$stringColor: #deddd7;
+
+$md-breakpoint: 680px;
+
+$guitar-string-width: 2px;
+$guitar-string-gap: 32px;
+$guitar-string-count: 4;
+$guitar-neck-width: calc(
+  $guitar-string-count * $guitar-string-width
+    + ($guitar-string-count - 1) * $guitar-string-gap
+);
+
+// TODO: move the sizing of the bass strings to here
 
 :export {
   background: $background;
   backgroundDark: $background-dark;
-  string: $string;
+  stringColor: $stringColor;
+
+  guitarStringWidth: $guitar-string-width;
+  guitarStringGap: $guitar-string-gap;
+  guitarStringCount: $guitar-string-count;
+  guitarNeckWidth: $guitar-neck-width;
 }

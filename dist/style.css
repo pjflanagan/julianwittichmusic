@@ -1,7 +1,11 @@
 :export {
   background: #120701;
   backgroundDark: #080300;
-  string: #deddd7;
+  stringColor: #deddd7;
+  guitarStringWidth: 2px;
+  guitarStringGap: 32px;
+  guitarStringCount: 4;
+  guitarNeckWidth: 104px;
 }
 
 html, body {
@@ -14,9 +18,43 @@ html, body {
 }
 
 canvas#canvas {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
+}
+
+div.slideshow {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: url(https://coolwalls.ca/cdn/shop/files/bandw-brooklyn-bridge-with-nyc-in-background-wallpaper-peel-n-stick-and-removes-easily-anytime-coolwalls-ca.jpg?v=1692044962);
+  background-size: cover;
+  filter: brightness(28%);
+}
+
+div.sidebar {
+  width: 100%;
+  background: #120701;
+}
+
+@media only screen and (min-width: 680px) {
+  canvas#canvas {
+    display: inline;
+  }
+  div.slideshow {
+    width: 64vw;
+  }
+  div.sidebar {
+    position: fixed;
+    left: calc(50vw + 104px);
+    width: 50vw;
+    height: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
