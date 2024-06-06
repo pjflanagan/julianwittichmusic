@@ -7,11 +7,52 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setupCanvas: () => (/* reexport safe */ _setup__WEBPACK_IMPORTED_MODULE_0__.setupCanvas)
+/* harmony export */ });
+/* harmony import */ var _setup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setupCanvas: () => (/* binding */ setupCanvas)
+/* harmony export */ });
+/* harmony import */ var _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+
+function setupCanvas() {
+    var canvasElement = document.getElementById('canvas');
+    if (!canvasElement) {
+        throw "Unable to get canvas context";
+    }
+    var context = canvasElement.getContext("2d");
+    canvasElement.width = window.innerWidth;
+    canvasElement.height = window.innerHeight;
+    if (!context) {
+        throw "Unable to get canvas context";
+    }
+    var visual = new _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__.GuitarVisual(context);
+    visual.setup();
+    visual.start();
+    document.body.addEventListener('mousemove', visual.handleMouseMove);
+    window.addEventListener('resize', setupCanvas);
+}
+
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   GuitarVisual: () => (/* binding */ GuitarVisual)
 /* harmony export */ });
-/* harmony import */ var _util_Visual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _GuitarString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _theme_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var _util_Visual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var _GuitarString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -31,9 +72,9 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 var DRAW_SPEED = 6;
-var GUITAR_STRING_COUNT = parseInt(_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringCount);
-var GUITAR_STRING_GAP = parseInt(_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringGap);
-var NECK_WIDTH = parseInt(_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarNeckWidth);
+var GUITAR_STRING_COUNT = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringCount);
+var GUITAR_STRING_GAP = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringGap);
+var NECK_WIDTH = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarNeckWidth);
 var GuitarVisual = (function (_super) {
     __extends(GuitarVisual, _super);
     function GuitarVisual(context) {
@@ -72,14 +113,14 @@ var GuitarVisual = (function (_super) {
 
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Visual: () => (/* binding */ Visual)
 /* harmony export */ });
-/* harmony import */ var _Geometry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _Geometry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 
 var Visual = (function () {
     function Visual(context) {
@@ -168,7 +209,7 @@ var Visual = (function () {
 
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -198,7 +239,7 @@ var Geometry = (function () {
 
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -206,10 +247,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   GUITAR_STRING: () => (/* binding */ GUITAR_STRING),
 /* harmony export */   GuitarString: () => (/* binding */ GuitarString)
 /* harmony export */ });
-/* harmony import */ var _util_Canvas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _util_Geometry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var _util_Motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var _theme_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _util_Canvas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var _util_Geometry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _util_Motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _style_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
 var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -225,9 +266,10 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
 
 var GUITAR_STRING = {
     OFFSCREEN: 120,
-    MAX_OFFSET_X: 42,
-    WIDTH: parseInt(_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.guitarStringWidth),
+    MAX_OFFSET_X: parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.guitarMaxOffsetX),
+    WIDTH: parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.guitarStringWidth),
 };
+var SIDEBAR_PADDING = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.sidebarGuitarOffset) + 6;
 var GuitarString = (function () {
     function GuitarString(visual, x, isEndString) {
         if (isEndString === void 0) { isEndString = false; }
@@ -286,12 +328,12 @@ var GuitarString = (function () {
                 strokes: [
                     ['moveTo', 0, 0],
                     ['quadraticCurveTo', this.pullPoint.x, this.pullPoint.y, 0, maxH],
-                    ['lineTo', 60, maxH],
-                    ['lineTo', 60, 0],
+                    ['lineTo', SIDEBAR_PADDING, maxH],
+                    ['lineTo', SIDEBAR_PADDING, 0],
                     ['lineTo', 0, 0],
                 ],
                 lineWidth: GUITAR_STRING.WIDTH,
-                fillStyle: _theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.background,
+                fillStyle: _style_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.background,
             }] : [];
         _util_Canvas__WEBPACK_IMPORTED_MODULE_0__.Canvas.draw(this.visual.getContext(), {
             position: this.position,
@@ -303,7 +345,7 @@ var GuitarString = (function () {
                         ['quadraticCurveTo', this.pullPoint.x, this.pullPoint.y, 0, maxH],
                     ],
                     lineWidth: GUITAR_STRING.WIDTH,
-                    strokeStyle: _theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.stringColor,
+                    strokeStyle: _style_theme_module_scss__WEBPACK_IMPORTED_MODULE_3__.stringColor,
                 },
             ], false)
         });
@@ -314,7 +356,7 @@ var GuitarString = (function () {
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -396,14 +438,14 @@ var Canvas = (function () {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Motion: () => (/* binding */ Motion)
 /* harmony export */ });
-/* harmony import */ var _Geometry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _Geometry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 
 var Motion = (function () {
     function Motion() {
@@ -433,7 +475,7 @@ var Motion = (function () {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -441,25 +483,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   background: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.background),
 /* harmony export */   backgroundDark: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.backgroundDark),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   guitarMaxOffsetX: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarMaxOffsetX),
 /* harmony export */   guitarNeckWidth: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarNeckWidth),
 /* harmony export */   guitarStringCount: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarStringCount),
 /* harmony export */   guitarStringGap: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarStringGap),
 /* harmony export */   guitarStringWidth: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.guitarStringWidth),
+/* harmony export */   sidebarGuitarOffset: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.sidebarGuitarOffset),
 /* harmony export */   stringColor: () => (/* reexport safe */ _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__.stringColor)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(14);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_theme_module_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(16);
 
       
       
@@ -488,7 +532,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ ((module) => {
 
 
@@ -577,7 +621,7 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ ((module) => {
 
 
@@ -643,7 +687,7 @@ function domAPI(options) {
 module.exports = domAPI;
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ ((module) => {
 
 
@@ -682,7 +726,7 @@ function insertBySelector(insert, style) {
 module.exports = insertBySelector;
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
@@ -697,7 +741,7 @@ function setAttributesWithoutAttributes(styleElement) {
 module.exports = setAttributesWithoutAttributes;
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ ((module) => {
 
 
@@ -712,7 +756,7 @@ function insertStyleElement(options) {
 module.exports = insertStyleElement;
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ ((module) => {
 
 
@@ -731,7 +775,7 @@ function styleTagTransform(css, styleElement) {
 module.exports = styleTagTransform;
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -739,15 +783,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   background: () => (/* binding */ background),
 /* harmony export */   backgroundDark: () => (/* binding */ backgroundDark),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   guitarMaxOffsetX: () => (/* binding */ guitarMaxOffsetX),
 /* harmony export */   guitarNeckWidth: () => (/* binding */ guitarNeckWidth),
 /* harmony export */   guitarStringCount: () => (/* binding */ guitarStringCount),
 /* harmony export */   guitarStringGap: () => (/* binding */ guitarStringGap),
 /* harmony export */   guitarStringWidth: () => (/* binding */ guitarStringWidth),
+/* harmony export */   sidebarGuitarOffset: () => (/* binding */ sidebarGuitarOffset),
 /* harmony export */   stringColor: () => (/* binding */ stringColor)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
@@ -756,18 +802,20 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
 // Exports
-var background = `#120701`;
+var background = `#0b0400`;
 var backgroundDark = `#080300`;
-var stringColor = `#deddd7`;
+var stringColor = `rgba(232, 230, 215, 0.9215686275)`;
 var guitarStringWidth = `2px`;
-var guitarStringGap = `32px`;
+var guitarStringGap = `18px`;
 var guitarStringCount = `4`;
-var guitarNeckWidth = `104px`;
+var guitarNeckWidth = `62px`;
+var guitarMaxOffsetX = `42px`;
+var sidebarGuitarOffset = `21px`;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ ((module) => {
 
 
@@ -777,7 +825,7 @@ module.exports = function (i) {
 };
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ ((module) => {
 
 
@@ -866,47 +914,6 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
-/***/ }),
-/* 17 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   setupCanvas: () => (/* reexport safe */ _setup__WEBPACK_IMPORTED_MODULE_0__.setupCanvas)
-/* harmony export */ });
-/* harmony import */ var _setup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
-
-
-
-/***/ }),
-/* 18 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   setupCanvas: () => (/* binding */ setupCanvas)
-/* harmony export */ });
-/* harmony import */ var _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-
-function setupCanvas() {
-    var canvasElement = document.getElementById('canvas');
-    if (!canvasElement) {
-        throw "Unable to get canvas context";
-    }
-    var context = canvasElement.getContext("2d");
-    canvasElement.width = window.innerWidth;
-    canvasElement.height = window.innerHeight;
-    if (!context) {
-        throw "Unable to get canvas context";
-    }
-    var visual = new _GuitarVisual__WEBPACK_IMPORTED_MODULE_0__.GuitarVisual(context);
-    visual.setup();
-    visual.start();
-    document.body.addEventListener('mousemove', visual.handleMouseMove);
-    window.addEventListener('resize', setupCanvas);
-}
-
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -985,7 +992,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _canvas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
+/* harmony import */ var _canvas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 function main() {
     (0,_canvas__WEBPACK_IMPORTED_MODULE_0__.setupCanvas)();

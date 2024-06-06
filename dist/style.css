@@ -1,11 +1,25 @@
 :export {
-  background: #120701;
+  background: #0b0400;
   backgroundDark: #080300;
-  stringColor: #deddd7;
+  stringColor: rgba(232, 230, 215, 0.9215686275);
   guitarStringWidth: 2px;
-  guitarStringGap: 32px;
+  guitarStringGap: 18px;
   guitarStringCount: 4;
-  guitarNeckWidth: 104px;
+  guitarNeckWidth: 62px;
+  guitarMaxOffsetX: 42px;
+  sidebarGuitarOffset: 21px;
+}
+
+:export {
+  background: #0b0400;
+  backgroundDark: #080300;
+  stringColor: rgba(232, 230, 215, 0.9215686275);
+  guitarStringWidth: 2px;
+  guitarStringGap: 18px;
+  guitarStringCount: 4;
+  guitarNeckWidth: 62px;
+  guitarMaxOffsetX: 42px;
+  sidebarGuitarOffset: 21px;
 }
 
 html, body {
@@ -15,6 +29,33 @@ html, body {
   font-family: "Inter", sans-serif;
   font-weight: 200;
   background: #080300;
+  color: rgba(232, 230, 215, 0.9215686275);
+}
+
+div {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Limelight";
+  font-size: 2em;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+:export {
+  background: #0b0400;
+  backgroundDark: #080300;
+  stringColor: rgba(232, 230, 215, 0.9215686275);
+  guitarStringWidth: 2px;
+  guitarStringGap: 18px;
+  guitarStringCount: 4;
+  guitarNeckWidth: 62px;
+  guitarMaxOffsetX: 42px;
+  sidebarGuitarOffset: 21px;
 }
 
 canvas#canvas {
@@ -34,12 +75,14 @@ div.slideshow {
   height: 100vh;
   background: url(https://coolwalls.ca/cdn/shop/files/bandw-brooklyn-bridge-with-nyc-in-background-wallpaper-peel-n-stick-and-removes-easily-anytime-coolwalls-ca.jpg?v=1692044962);
   background-size: cover;
-  filter: brightness(28%);
 }
 
 div.sidebar {
-  width: 100%;
-  background: #120701;
+  position: relative;
+  top: 80vh;
+  width: 100vw;
+  min-height: 100vh;
+  background: #0b0400;
 }
 
 @media only screen and (min-width: 680px) {
@@ -47,13 +90,16 @@ div.sidebar {
     display: inline;
   }
   div.slideshow {
-    width: 64vw;
+    width: calc(50vw + 31px + 21px);
   }
   div.sidebar {
     position: fixed;
-    left: calc(50vw + 104px);
-    width: 50vw;
+    top: 0;
+    left: calc(50vw + 31px + 21px);
+    width: calc(100vw - (50vw + 31px + 21px));
     height: 100%;
+    box-shadow: -140px 0px 80px 9px rgba(0, 0, 0, 0.5333333333);
+    padding: 42px 42px 42px 21px;
   }
 }
 

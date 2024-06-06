@@ -1,6 +1,6 @@
 import { Visual } from './util/Visual';
 import { GUITAR_STRING, GuitarString } from './GuitarString';
-import * as Theme from '../theme.module.scss';
+import * as Theme from '../style/theme.module.scss';
 
 const DRAW_SPEED = 6;
 

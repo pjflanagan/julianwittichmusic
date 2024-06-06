@@ -1,14 +1,5 @@
 @import './theme.module.scss';
 
-html, body {
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  background: $background-dark;
-}
-
 canvas#canvas {
   display: none;
   position: fixed;
@@ -26,11 +17,14 @@ div.slideshow {
   height: 100vh;
   background: url(https://coolwalls.ca/cdn/shop/files/bandw-brooklyn-bridge-with-nyc-in-background-wallpaper-peel-n-stick-and-removes-easily-anytime-coolwalls-ca.jpg?v=1692044962);
   background-size: cover;
-  filter: brightness(28%);
+  // filter: brightness(28%);
 }
 
 div.sidebar {
-  width: 100%;
+  position: relative;
+  top: 80vh;
+  width: 100vw;
+  min-height: 100vh;
   background: $background;
 }
 
@@ -39,14 +33,19 @@ div.sidebar {
     display: inline;
   }
 
+  $sidebar-left: calc(50vw + $guitar-neck-width / 2 + $sidebar-guitar-offset);
   div.slideshow {
-    width: 64vw;
+    width: $sidebar-left;
   }
 
+  $sidebar-width: calc(100vw - $sidebar-left);
   div.sidebar {
     position: fixed;
-    left: calc(50vw + $guitar-neck-width);
-    width: 50vw;
+    top: 0;
+    left: $sidebar-left;
+    width: $sidebar-width;
     height: 100%;
+    box-shadow: -140px 0px 80px 9px #0008;
+    padding: $sidebar-padding $sidebar-padding $sidebar-padding $sidebar-guitar-offset;
   }
 }

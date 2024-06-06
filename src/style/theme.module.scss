@@ -1,18 +1,20 @@
-$background: #120701;
+$background: #0b0400;
 $background-dark: #080300;
-$stringColor: #deddd7;
+$stringColor: #e8e6d7eb;
 
 $md-breakpoint: 680px;
 
 $guitar-string-width: 2px;
-$guitar-string-gap: 32px;
+$guitar-string-gap: 18px;
 $guitar-string-count: 4;
 $guitar-neck-width: calc(
   $guitar-string-count * $guitar-string-width
     + ($guitar-string-count - 1) * $guitar-string-gap
 );
+$guitar-max-offset-x: 42px;
 
-// TODO: move the sizing of the bass strings to here
+$sidebar-padding: $guitar-max-offset-x;
+$sidebar-guitar-offset: calc($sidebar-padding / 2);
 
 :export {
   background: $background;
@@ -23,4 +25,7 @@ $guitar-neck-width: calc(
   guitarStringGap: $guitar-string-gap;
   guitarStringCount: $guitar-string-count;
   guitarNeckWidth: $guitar-neck-width;
+  guitarMaxOffsetX: $guitar-max-offset-x;
+
+  sidebarGuitarOffset: $sidebar-guitar-offset;
 }

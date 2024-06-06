@@ -1,0 +1,25 @@
+@import './theme.module.scss';
+
+html, body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  background: $background-dark;
+  color: $stringColor;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Limelight';
+  font-size: 2em;
+}
+
+p {
+  font-size: 0.9em;
+}

@@ -3,13 +3,15 @@ import { LayerInstruction } from './util/canvasTypes';
 import { Geometry, Point } from './util/Geometry';
 import { Motion } from './util/Motion';
 import type { GuitarVisual } from './GuitarVisual';
-import * as Theme from '../theme.module.scss';
+import * as Theme from '../style/theme.module.scss';
 
 export const GUITAR_STRING = {
   OFFSCREEN: 120,
-  MAX_OFFSET_X: 42,
+  MAX_OFFSET_X: parseInt(Theme.guitarMaxOffsetX),
   WIDTH: parseInt(Theme.guitarStringWidth),
 }
+
+const SIDEBAR_PADDING = parseInt(Theme.sidebarGuitarOffset) + 6;
 
 export class GuitarString {
   visual: GuitarVisual;
@@ -96,8 +98,8 @@ export class GuitarString {
       strokes: [
         ['moveTo', 0, 0],
         ['quadraticCurveTo', this.pullPoint.x, this.pullPoint.y, 0, maxH],
-        ['lineTo', 60, maxH],
-        ['lineTo', 60, 0],
+        ['lineTo', SIDEBAR_PADDING, maxH],
+        ['lineTo', SIDEBAR_PADDING, 0],
         ['lineTo', 0, 0],
       ],
       lineWidth: GUITAR_STRING.WIDTH,
