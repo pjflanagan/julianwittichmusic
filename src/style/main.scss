@@ -15,7 +15,7 @@ div.slideshow {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: url(https://coolwalls.ca/cdn/shop/files/bandw-brooklyn-bridge-with-nyc-in-background-wallpaper-peel-n-stick-and-removes-easily-anytime-coolwalls-ca.jpg?v=1692044962);
+  background: url(../img/photo/JW-slideshow.jpg);
   background-size: cover;
   // filter: brightness(28%);
 }
@@ -33,7 +33,7 @@ div.sidebar {
     $section-padding: 24px;
 
     section {
-      padding: $section-padding $section-padding 0 $section-padding;
+      padding: calc($section-padding / 2) $section-padding calc($section-padding / 2) $section-padding;
     }
 
     section#intro,
@@ -48,11 +48,11 @@ div.sidebar {
     }
 
     section#contact {
-      padding: $section-padding;
+      padding-bottom: $section-padding;
     }
 
     section#footer {
-      padding: $section-padding;
+      padding-bottom: $section-padding;
       text-align: center;
       color: #fff3;
 

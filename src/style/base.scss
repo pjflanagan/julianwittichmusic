@@ -26,14 +26,14 @@ h1 {
   text-align: center;
   font-family: 'Limelight';
   font-size: 2.8em;
-  color: $neon-teal;
+  color: $accent-blue;
 }
 
 h2 {
   margin: 12px 0 6px 0;
   font-family: 'Limelight';
   font-size: 1.8em;
-  color: $neon-teal;
+  color: $accent-blue;
 }
 
 h4 { // subheading
@@ -50,10 +50,10 @@ p {
 
 a {
   transition: color 0.2s;
-  color: $neon-teal;
+  color: $accent-blue;
 
   &:hover {
-    color: $neon-teal-bright;
+    color: $accent-blue-dark;
   }
 }
 

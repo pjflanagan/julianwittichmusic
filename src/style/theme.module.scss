@@ -5,20 +5,20 @@ $background-dark: #080300;
 $string-color: #f3f3ed;
 $string-color-transparent: #f3f3ed44;
 $gold-gradient: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #FDB931 8%, #d49e27 30%, #cda11d 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #f5f2a8 0%, #FFFFAC 8%, #D1B464 25%, #be9d13 62.5%, #baa316 100%);
-$neon-teal: #18e8bc;
-$neon-teal-bright: #53f5d2;
+$accent-blue: #93cbfe;
+$accent-blue-dark: #5397d5;
 $selection: #18e8bb2c;
 
 $md-breakpoint: 720px;
 
 $guitar-string-width: 2px;
-$guitar-string-gap: 18px;
+$guitar-string-gap: 12px;
+$guitar-max-offset-x: 26px;
 $guitar-string-count: 4;
 $guitar-neck-width: calc(
   $guitar-string-count * $guitar-string-width
     + ($guitar-string-count - 1) * $guitar-string-gap
 );
-$guitar-max-offset-x: 38px;
 $guitar-position-x-percent: 58vw;
 
 $sidebar-padding: $guitar-max-offset-x;

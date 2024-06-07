@@ -71,7 +71,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var DRAW_SPEED = 6;
+var DRAW_SPEED = 4;
 var GUITAR_STRING_COUNT = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringCount);
 var GUITAR_STRING_GAP = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarStringGap);
 var NECK_WIDTH = parseInt(_style_theme_module_scss__WEBPACK_IMPORTED_MODULE_2__.guitarNeckWidth);
@@ -809,12 +809,12 @@ var background = `#282828`;
 var backgroundDark = `#080300`;
 var stringColor = `#f3f3ed`;
 var guitarStringWidth = `2px`;
-var guitarStringGap = `18px`;
+var guitarStringGap = `12px`;
 var guitarStringCount = `4`;
-var guitarNeckWidth = `62px`;
-var guitarMaxOffsetX = `38px`;
+var guitarNeckWidth = `44px`;
+var guitarMaxOffsetX = `26px`;
 var guitarPositionXPercent = `58vw`;
-var sidebarGuitarOffset = `19px`;
+var sidebarGuitarOffset = `13px`;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
