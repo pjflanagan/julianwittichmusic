@@ -1,5 +1,12 @@
 @import './theme.module.scss';
 
+::selection {
+  background: $selection;
+}
+::-moz-selection {
+  background: $selection;
+}
+
 html, body {
   margin: 0;
   height: 100vh;
@@ -43,6 +50,11 @@ p {
 
 a {
   transition: color 0.2s;
+  color: $neon-teal;
+
+  &:hover {
+    color: $neon-teal-bright;
+  }
 }
 
 hr {

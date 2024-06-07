@@ -26,11 +26,50 @@ div.sidebar {
   width: 100vw;
   min-height: 100vh;
   background: $background;
+
+  div.sidebar-content {
+    margin: 0 auto;
+
+    $section-padding: 24px;
+
+    section {
+      padding: $section-padding $section-padding 0 $section-padding;
+    }
+
+    section#intro,
+    hr.intro {
+      display: none;
+    }
+
+    section#bio {
+      iframe {
+        margin: 12px 0;
+      }
+    }
+
+    section#contact {
+      padding: $section-padding;
+    }
+
+    section#footer {
+      padding: $section-padding;
+      text-align: center;
+      color: #fff3;
+
+      a {
+        color: #fff3;
+
+        &:hover {
+          color: #fff4;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: $md-breakpoint) {
   canvas#canvas {
-    display: inline;
+    display: block;
   }
 
   div.slideshow {
@@ -51,11 +90,14 @@ div.sidebar {
     overflow-x: hidden;
 
     div.sidebar-content {
-      margin: 0 auto;
       max-width: 540px;
 
       section {
-        padding: 24px 0;
+        padding: 24px 0 !important;
+      }
+
+      section#intro, hr.intro{
+        display: block;
       }
 
       section#intro {
@@ -65,25 +107,6 @@ div.sidebar {
         div.intro-content {
           margin-top: 50vh;
           transform: translateY(-100%);
-        }
-      }
-
-      section#bio {
-        iframe {
-          margin: 12px 0;
-        }
-      }
-
-      section#footer {
-        text-align: center;
-        color: #fff3;
-
-        a {
-          color: #fff3;
-
-          &:hover {
-            color: #fff4;
-          }
         }
       }
     }

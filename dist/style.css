@@ -24,6 +24,14 @@
   sidebarGuitarOffset: 19px;
 }
 
+::selection {
+  background: rgba(24, 232, 187, 0.1725490196);
+}
+
+::-moz-selection {
+  background: rgba(24, 232, 187, 0.1725490196);
+}
+
 html, body {
   margin: 0;
   height: 100vh;
@@ -67,6 +75,10 @@ p {
 
 a {
   transition: color 0.2s;
+  color: #18e8bc;
+}
+a:hover {
+  color: #53f5d2;
 }
 
 hr {
@@ -129,10 +141,37 @@ div.sidebar {
   min-height: 100vh;
   background: #282828;
 }
+div.sidebar div.sidebar-content {
+  margin: 0 auto;
+}
+div.sidebar div.sidebar-content section {
+  padding: 24px 24px 0 24px;
+}
+div.sidebar div.sidebar-content section#intro,
+div.sidebar div.sidebar-content hr.intro {
+  display: none;
+}
+div.sidebar div.sidebar-content section#bio iframe {
+  margin: 12px 0;
+}
+div.sidebar div.sidebar-content section#contact {
+  padding: 24px;
+}
+div.sidebar div.sidebar-content section#footer {
+  padding: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2);
+}
+div.sidebar div.sidebar-content section#footer a {
+  color: rgba(255, 255, 255, 0.2);
+}
+div.sidebar div.sidebar-content section#footer a:hover {
+  color: rgba(255, 255, 255, 0.2666666667);
+}
 
 @media only screen and (min-width: 720px) {
   canvas#canvas {
-    display: inline;
+    display: block;
   }
   div.slideshow {
     width: calc(58vw + 50px);
@@ -149,11 +188,13 @@ div.sidebar {
     overflow-x: hidden;
   }
   div.sidebar div.sidebar-content {
-    margin: 0 auto;
     max-width: 540px;
   }
   div.sidebar div.sidebar-content section {
-    padding: 24px 0;
+    padding: 24px 0 !important;
+  }
+  div.sidebar div.sidebar-content section#intro, div.sidebar div.sidebar-content hr.intro {
+    display: block;
   }
   div.sidebar div.sidebar-content section#intro {
     min-height: 100%;
@@ -162,19 +203,6 @@ div.sidebar {
   div.sidebar div.sidebar-content section#intro div.intro-content {
     margin-top: 50vh;
     transform: translateY(-100%);
-  }
-  div.sidebar div.sidebar-content section#bio iframe {
-    margin: 12px 0;
-  }
-  div.sidebar div.sidebar-content section#footer {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.2);
-  }
-  div.sidebar div.sidebar-content section#footer a {
-    color: rgba(255, 255, 255, 0.2);
-  }
-  div.sidebar div.sidebar-content section#footer a:hover {
-    color: rgba(255, 255, 255, 0.2666666667);
   }
 }
 
