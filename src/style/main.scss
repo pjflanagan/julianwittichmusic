@@ -13,22 +13,59 @@ canvas#canvas {
 
 div.slideshow {
   position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: url(../img/photo/JW-slideshow.jpg);
   background-size: cover;
   // filter: brightness(28%);
+
+  div.header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 12px;
+
+    div.logo-holder {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    div.title-holder {
+      margin: 12px 0 4px;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 300;
+      color: #fff;
+    }
+  }
 }
 
 div.sidebar {
   position: relative;
-  top: 80vh;
+  top: calc(100vh - $guitar-neck-width);
   width: 100vw;
   min-height: 100vh;
-  background: $background;
+
+  div.sidebar-strings {
+    div.string {
+      width: 100%;
+      margin-top: $guitar-string-gap;
+      height: $guitar-string-width;
+      background: $string-color-transparent;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
 
   div.sidebar-content {
     margin: 0 auto;
+    background: $background;
 
     $section-padding: 24px;
 
@@ -56,11 +93,15 @@ div.sidebar {
       text-align: center;
       color: #fff3;
 
-      a {
-        color: #fff3;
-
-        &:hover {
-          color: #fff4;
+      p {
+        margin: 4px 0;
+        
+        a {
+          color: #fff3;
+          
+          &:hover {
+            color: #fff4;
+          }
         }
       }
     }
@@ -74,6 +115,10 @@ div.sidebar {
 
   div.slideshow {
     width: $sidebar-left;
+
+    div.header {
+      display: none;
+    }
   }
 
   $sidebar-width: calc(100vw - $sidebar-left);
@@ -88,6 +133,11 @@ div.sidebar {
     box-shadow: -140px 0px 80px 9px #0008;
     overflow-y: scroll;
     overflow-x: hidden;
+    background: $background;
+
+    div.sidebar-strings {
+      display: none;
+    }
 
     div.sidebar-content {
       max-width: 540px;
@@ -102,11 +152,13 @@ div.sidebar {
 
       section#intro {
         min-height: 100%;
+        padding: 0 !important;
         border: 1px solid #0000;
 
         div.intro-content {
-          margin-top: 50vh;
-          transform: translateY(-100%);
+          position: relative;
+          top: 50vh;
+          transform: translateY(-50%);
         }
       }
     }
