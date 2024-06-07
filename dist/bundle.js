@@ -918,6 +918,42 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
+/***/ }),
+/* 19 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setupScroll: () => (/* reexport safe */ _scroll__WEBPACK_IMPORTED_MODULE_0__.setupScroll)
+/* harmony export */ });
+/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+
+
+
+/***/ }),
+/* 20 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setupScroll: () => (/* binding */ setupScroll)
+/* harmony export */ });
+var PARALLAX_RATE = 1 / 4;
+function getScrollTop() {
+    return window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+}
+function scroll() {
+    var slideshow = document.getElementById('slideshow');
+    if (!slideshow) {
+        return;
+    }
+    slideshow.style.top = "".concat(-getScrollTop() * PARALLAX_RATE, "px");
+}
+function setupScroll() {
+    window.addEventListener('scroll', scroll);
+}
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -996,10 +1032,13 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _canvas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
+/* harmony import */ var _canvas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+
 
 function main() {
-    (0,_canvas__WEBPACK_IMPORTED_MODULE_0__.setupCanvas)();
+    (0,_canvas__WEBPACK_IMPORTED_MODULE_1__.setupCanvas)();
+    (0,_scroll__WEBPACK_IMPORTED_MODULE_0__.setupScroll)();
 }
 main();
 
