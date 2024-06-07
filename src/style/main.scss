@@ -18,6 +18,7 @@ div.slideshow {
   height: 100vh;
   background: url(../img/photo/JW-slideshow.jpg);
   background-size: cover;
+  background-position: center;
   // filter: brightness(28%);
 
   div.header {
@@ -67,40 +68,43 @@ div.sidebar {
     margin: 0 auto;
     background: $background;
 
-    $section-padding: 24px;
-
-    section {
-      padding: calc($section-padding / 2) $section-padding calc($section-padding / 2) $section-padding;
-    }
-
     section#intro,
     hr.intro {
       display: none;
     }
 
-    section#bio {
-      iframe {
-        margin: 12px 0;
+    $section-padding: 24px;
+
+    section {
+      padding: 0 $section-padding calc($section-padding / 2) $section-padding;
+
+      &#bio {
+        padding-top: calc($section-padding / 2);
+
+        iframe {
+          margin: 12px 0;
+        }
       }
-    }
 
-    section#contact {
-      padding-bottom: $section-padding;
-    }
+      &#contact {
+        padding-bottom: calc(2 * $section-padding);
+      }
 
-    section#footer {
-      padding-bottom: $section-padding;
-      text-align: center;
-      color: #fff3;
+      &#footer {
+        padding-top: $section-padding;
+        padding-bottom: $section-padding;
+        text-align: center;
+        color: #fff3;
 
-      p {
-        margin: 4px 0;
-        
-        a {
-          color: #fff3;
-          
-          &:hover {
-            color: #fff4;
+        p {
+          margin: 4px 0;
+
+          a {
+            color: #fff3;
+
+            &:hover {
+              color: #fff4;
+            }
           }
         }
       }
@@ -142,23 +146,38 @@ div.sidebar {
     div.sidebar-content {
       max-width: 540px;
 
-      section {
-        padding: 24px 0 !important;
-      }
-
-      section#intro, hr.intro{
+      section#intro,
+      hr.intro {
         display: block;
       }
 
-      section#intro {
-        min-height: 100%;
-        padding: 0 !important;
-        border: 1px solid #0000;
+      section {
+        padding: 24px 0 0 !important;
 
-        div.intro-content {
-          position: relative;
-          top: 50vh;
-          transform: translateY(-50%);
+        &#intro {
+          min-height: 100%;
+          padding: 0 !important;
+          border: 1px solid #0000;
+
+          div.intro-content {
+            position: relative;
+            top: 50vh;
+            transform: translateY(-50%);
+
+            .logo-holder {
+              display: flex;
+              justify-content: center;
+              margin: 0 50% 42px;
+            }
+          }
+        }
+
+        &#contact {
+          padding-bottom: 24px !important;
+        }
+
+        &#footer {
+          padding-bottom: 24px !important;
         }
       }
     }
