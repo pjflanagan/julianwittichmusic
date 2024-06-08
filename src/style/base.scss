@@ -63,9 +63,14 @@ a {
 }
 
 hr {
-  width: 50%;
-  height: 1px;
-  background: $string-color-transparent;
-  // background: $gold-gradient;
+  width: calc(240px / 4);
+  height: calc(72px / 4);
   border: none;
+  background: url(../img/icon/f-hole.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  // background: $string-color-transparent;
+  // background: $gold-gradient;
+  opacity: 0.28;
 }

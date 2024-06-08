@@ -25,11 +25,11 @@
 }
 
 ::selection {
-  background: rgba(24, 232, 187, 0.1725490196);
+  background: rgba(147, 203, 254, 0.3411764706);
 }
 
 ::-moz-selection {
-  background: rgba(24, 232, 187, 0.1725490196);
+  background: rgba(147, 203, 254, 0.3411764706);
 }
 
 html, body {
@@ -84,10 +84,14 @@ a:hover {
 }
 
 hr {
-  width: 50%;
-  height: 1px;
-  background: rgba(243, 243, 237, 0.2666666667);
+  width: 60px;
+  height: 18px;
   border: none;
+  background: url(../img/icon/f-hole.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.28;
 }
 
 .social-icon-row {
@@ -197,6 +201,7 @@ div.sidebar div.sidebar-content section#footer {
   padding-top: 24px;
   padding-bottom: 24px;
   text-align: center;
+  font-size: 0.82em;
   color: rgba(255, 255, 255, 0.2);
 }
 div.sidebar div.sidebar-content section#footer p {
