@@ -7,7 +7,7 @@
     "start": "netlify dev",
     "build-webpack": "npx webpack",
     "build-scss": "npx sass ./src/style/index.scss ./dist/style.css",
-    "build": "npm run build-ts && npm run build-scss",
+    "build": "npm run build-webpack && npm run build-scss",
     "open": "open ./index.html"
   },
   "devDependencies": {
