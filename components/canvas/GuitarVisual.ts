@@ -1,13 +1,13 @@
 import { Visual } from './util/Visual';
 import { GUITAR_STRING, GuitarString } from './GuitarString';
-import * as Theme from '../style/theme.module.scss';
+import Theme from '../../styles/theme.module.scss';
 
 const DRAW_SPEED = 4;
 
-const GUITAR_STRING_COUNT = parseInt(Theme.guitarStringCount);
-const GUITAR_STRING_GAP = parseInt(Theme.guitarStringGap);
-const NECK_WIDTH = parseInt(Theme.guitarNeckWidth);
-const GUITAR_POSTION_X_PERCENT = parseInt(Theme.guitarPositionXPercent) / 100;
+const GUITAR_STRING_COUNT = parseInt(Theme.guitarStringCount!);
+const GUITAR_STRING_GAP = parseInt(Theme.guitarStringGap!);
+const NECK_WIDTH = parseInt(Theme.guitarNeckWidth!);
+const GUITAR_POSTION_X_PERCENT = parseInt(Theme.guitarPositionXPercent!) / 100;
 
 export class GuitarVisual extends Visual {
   static visualName = 'Guitar';

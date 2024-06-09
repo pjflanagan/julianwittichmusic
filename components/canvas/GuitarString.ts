@@ -3,15 +3,15 @@ import { LayerInstruction } from './util/canvasTypes';
 import { Geometry, Point } from './util/Geometry';
 import { Motion } from './util/Motion';
 import type { GuitarVisual } from './GuitarVisual';
-import * as Theme from '../style/theme.module.scss';
+import Theme from '../../styles/theme.module.scss';
 
 export const GUITAR_STRING = {
   OFFSCREEN: 120,
-  MAX_OFFSET_X: parseInt(Theme.guitarMaxOffsetX),
-  WIDTH: parseInt(Theme.guitarStringWidth),
+  MAX_OFFSET_X: parseInt(Theme.guitarMaxOffsetX!),
+  WIDTH: parseInt(Theme.guitarStringWidth!),
 }
 
-const SIDEBAR_PADDING = parseInt(Theme.sidebarGuitarOffset) + 6;
+const SIDEBAR_PADDING = parseInt(Theme.sidebarGuitarOffset!) + 6;
 
 export class GuitarString {
   visual: GuitarVisual;
