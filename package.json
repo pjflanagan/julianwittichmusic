@@ -1,26 +1,22 @@
 {
-  "name": "julianwittichmusic",
+  "private": true,
   "scripts": {
-    "dev-webpack": "npx webpack --watch",
-    "dev-scss": "npx sass --watch ./src/style/index.scss ./dist/style.css",
-    "dev": "npm run dev-webpack & npm run dev-scss & npm run open",
-    "start": "netlify dev",
-    "build-webpack": "npx webpack",
-    "build-scss": "npx sass ./src/style/index.scss ./dist/style.css",
-    "build": "npm run build-webpack && npm run build-scss",
-    "open": "open ./index.html"
-  },
-  "devDependencies": {
-    "css-loader": "^7.1.2",
-    "sass": "^1.77.4",
-    "sass-loader": "^14.2.1",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.4.5",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start"
   },
   "dependencies": {
-    "@netlify/functions": "^2.7.0"
+    "next": "latest",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.77.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.2",
+    "@types/react": "18.3.3",
+    "typescript": "5.4.5"
   }
 }

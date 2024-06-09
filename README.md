@@ -4,12 +4,10 @@
 
 ## Dev
 
-To run both the `tsc` and `scss` watchers.
-
 ```
-$ npm run dev
+$ netlify dev
 ```
 
 ## Deploy
 
-For now, commit everything in the `dist` folder. We are just deploying to Github Pages without any build logic.
+This is running on Netlify.

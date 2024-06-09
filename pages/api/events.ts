@@ -1,5 +1,5 @@
 
-import { Handler } from '@netlify/functions';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 const GOOGLE_CALENDAR_API_KEY = process.env.GOOGLE_CALENDAR_API_KEY;
 // const CALENDAR_ID = `a4u4bvsa491isjkc9q2g6f8j60@group.calendar.google.com`;
@@ -12,13 +12,14 @@ export async function fetchEvents() {
   return await response.json();
 }
 
-const handler: Handler = async (_event, _context) => {
+// TODO: define
+type ResponseData = any;
+
+export default async function handler(
+  _req: NextApiRequest,
+  res: NextApiResponse<ResponseData>
+) {
   const events = await fetchEvents();
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(events.items)
-  };
+  res.status(200).json(events.items);
 }
-
-export { handler };
