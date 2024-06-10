@@ -6,6 +6,21 @@ const CALENDAR_ID = '8e350f17a74a7dbd84eb59af5b9c2e85e64dcd8e6c2d6ecf1dddff69b19
 
 const CALENDAR_EVENTS_ENDPOINT = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${GOOGLE_CALENDAR_API_KEY}`;
 
+type TimezonedDatetime = {
+  dateTime: string;
+  timeZone: string;
+}
+
+export type Event = {
+  start: TimezonedDatetime;
+  end: TimezonedDatetime;
+  summary: string;
+  description: string;
+  location: string;
+}
+
+type ResponseData = Event[];
+
 export async function fetchFutureEvents() {
   const response = await fetch(CALENDAR_EVENTS_ENDPOINT, {
     method: 'GET',
@@ -16,8 +31,6 @@ export async function fetchFutureEvents() {
   return await response.json();
 }
 
-type Event = {[key: string]: any}
-type ResponseData = Event[];
 
 export default async function handler(
   _req: NextApiRequest,

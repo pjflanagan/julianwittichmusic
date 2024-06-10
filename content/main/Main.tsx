@@ -1,16 +1,31 @@
-import Link from "next/link";
-import { SocialIconRow } from "../../components";
-
-import Style from "./style.module.scss";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import moment from "moment";
+import { SocialIconRow } from "../../components";
+import { EventsList } from '../../components';
+import { Event } from "../../pages/api/events";
+import Style from "./style.module.scss";
+
+function chronological(a: Event, b: Event): number {
+  return moment(a.end.dateTime).diff(moment(b.end.dateTime));
+}
+
+function filterAndOrderDates(fullEventsList: Event[]): Event[] {
+  const currentTime = moment();
+  return fullEventsList.filter((event) => {
+    const eventEndTime = moment(event.end.dateTime);
+    return eventEndTime.isAfter(currentTime);
+  }).sort(chronological);
+}
 
 export function Main() {
-  const [eventsList, setEventsList] = useState([]);
+  const [eventsList, setEventsList] = useState<Event[]>([]);
 
   async function fetchEvents() {
     const response = await fetch("/api/events");
-    const newEventsList = await response.json();
-    setEventsList(newEventsList);
+    const fullEventsList: Event[] = await response.json();
+    const futureEventsList = filterAndOrderDates(fullEventsList);
+    setEventsList(futureEventsList);
   }
 
   useEffect(() => {
@@ -42,22 +57,7 @@ export function Main() {
           </Link>{" "}
           all summer long.
         </p>
-        <div className={Style["events-list"]}>
-          {eventsList.map((event, i) => {
-            console.log(event);
-            return (
-              <div key={i} className={Style["event"]}>
-                <div className={Style["datetime"]}>
-                  <div className={Style["date"]}>March 23rd</div>
-                  <div className={Style["time"]}>8:30pm</div>
-                </div>
-                <div className={Style["location"]}>
-                  {/* <Link href="#"> Location </Link> */}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <EventsList eventsList={eventsList} />
       </div>
       <div className={Style["section"]} id={Style["bio"]}>
         <h2>About</h2>

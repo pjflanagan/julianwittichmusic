@@ -1,0 +1,49 @@
+@import '../../styles/theme.module.scss';
+
+.events-list {
+  width: 100%;
+
+  .event {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid $string-color-transparent;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    $row-margin: 8px;
+
+    .date-time {
+      width: 35%;
+
+      .date {
+        font-weight: 500;
+        margin-bottom: $row-margin;
+      }
+
+      .time {
+        color: #fff8;
+      }
+    }
+
+    .event-location {
+      width: calc(65% - 28px);
+
+      .location {
+        font-weight: 500;
+        margin-bottom: $row-margin;
+      }
+
+      .title {
+        color: #fff8;
+      }
+    }
+
+    .link {
+      width: 28px;
+      text-align: right;
+    }
+  }
+}
