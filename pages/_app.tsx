@@ -1,13 +1,14 @@
 import React from "react";
-import "../styles/index.scss";
 import Head from "next/head";
+
+import "../styles/index.scss";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
         <meta charSet="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
         {/* <!-- NOTE: this has to match $background --> */}

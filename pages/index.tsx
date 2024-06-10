@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Canvas } from "../components/canvas";
-import { Sidebar, Slideshow } from "../components/layout";
+import { Sidebar } from "../components/sidebar";
+import { Slideshow } from "../components/slideshow";
+import { SocialIconRow } from "../components/social-icon-row";
 
 export default function Home() {
   return (
@@ -17,38 +19,7 @@ export default function Home() {
               </div>
               <h1>Julian B. Wittich</h1>
               <h4>Jazz Bassist performing in NYC</h4>
-              <div className="social-icon-row">
-                <Link
-                  target="_blank"
-                  href="https://open.spotify.com/artist/64mWZmWHfA6SoxqoibbwbR?si=WggJ-PvlTq-3A-EVLXcg8Q"
-                >
-                  <img
-                    className="social-icon"
-                    width="24"
-                    src="/img/icon/icons8-spotify-48.png"
-                  />
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/@julianwittich5893"
-                >
-                  <img
-                    className="social-icon"
-                    width="24"
-                    src="/img/icon/icons8-youtube-48.png"
-                  />
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.instagram.com/julianwittich?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                >
-                  <img
-                    className="social-icon"
-                    width="24"
-                    src="/img/icon/icons8-instagram-48.png"
-                  />
-                </Link>
-              </div>
+              <SocialIconRow />
             </div>
           </section>
           <hr className="intro" />
@@ -145,13 +116,13 @@ export default function Home() {
                 title="F Cut Violin Icons"
               >
                 Noun Project
-              </Link>
-              <Link
+              </Link> 
+              (<Link
                 href="https://creativecommons.org/licenses/by/3.0/"
                 target="_blank"
               >
                 CC BY 3.0
-              </Link>
+              </Link>)
             </p>
             <p>
               Icons from

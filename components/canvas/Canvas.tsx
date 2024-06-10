@@ -39,5 +39,5 @@ export function Canvas() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className={Style.canvas} />;
+  return <canvas ref={canvasRef} className={Style['canvas']} />;
 }
