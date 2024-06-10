@@ -32,25 +32,6 @@ export default function App({ Component, pageProps }) {
           content="https://julianwittich.com/img/photo/JW-slideshow-bw.jpg"
         />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    /> --> */}
-        {/* <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&family=Limelight&display=swap"
-      rel="stylesheet"
-    /> --> */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-          rel="stylesheet"
-        />
-
         {/* <!-- TODO: add a bunch of keywords --> */}
       </Head>
       <Component {...pageProps} />

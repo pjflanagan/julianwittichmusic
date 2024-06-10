@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import Style from './style.module.scss';
 
-console.log(Style);
-
 export function SocialIconRow() {
   return (
     <div className={Style['social-icon-row']}>

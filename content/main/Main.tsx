@@ -1,14 +1,27 @@
 import Link from "next/link";
 import { SocialIconRow } from "../../components";
 
-import Style from './style.module.scss';
+import Style from "./style.module.scss";
+import { useEffect, useState } from "react";
 
 export function Main() {
+  const [eventsList, setEventsList] = useState([]);
+
+  async function fetchEvents() {
+    const response = await fetch("/api/events");
+    const newEventsList = await response.json();
+    setEventsList(newEventsList);
+  }
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
   return (
     <>
-      <div className={Style['section']} id={Style['intro']}>
-        <div className={Style['intro-content']}>
-          <div className={Style['logo-holder']}>
+      <div className={Style["section"]} id={Style["intro"]}>
+        <div className={Style["intro-content"]}>
+          <div className={Style["logo-holder"]}>
             <img src="/img/logo/logo.png" width="84" />
           </div>
           <h1>Julian B. Wittich</h1>
@@ -16,35 +29,38 @@ export function Main() {
           <SocialIconRow />
         </div>
       </div>
-      <hr className={Style['intro']} />
-      <div className={Style['section']} id={Style['events']}>
+      <hr className={Style["intro"]} />
+      <div className={Style["section"]} id={Style["events"]}>
         <h2>Events</h2>
         <p>
-          You can find Julian performing in{' '}
+          You can find Julian performing in{" "}
           <Link
             href="https://maps.app.goo.gl/xh3V6TjgnDdKoPpJ6"
             target="_blank"
           >
             Washington Square Park
-          </Link>
-          {' '}all summer long.
+          </Link>{" "}
+          all summer long.
         </p>
         {/* <!-- TODO: this would just be so much easier as a react component. I think it's time to move to Nextjs --> */}
-        <div className={Style['events-list']}>
-          {/* <Link href="" target="_blank">
-                  <div className={Style['event']}>
-                    <div className={Style['datetime']}>
-                      <div className={Style['date']}>March 23rd</div>
-                      <div className={Style['time']}>8:30pm</div>
-                    </div>
-                    <div className={Style['location']}>
-                      <Link href="#"> Location </Link>
-                    </div>
-                  </div>
-                </Link> */}
+        <div className={Style["events-list"]}>
+          {eventsList.map((event, i) => {
+            console.log(event);
+            return (
+              <div key={i} className={Style["event"]}>
+                <div className={Style["datetime"]}>
+                  <div className={Style["date"]}>March 23rd</div>
+                  <div className={Style["time"]}>8:30pm</div>
+                </div>
+                <div className={Style["location"]}>
+                  {/* <Link href="#"> Location </Link> */}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-      <div className={Style['section']} id={Style['bio']}>
+      <div className={Style["section"]} id={Style["bio"]}>
         <h2>About</h2>
         <p>
           Julian Wittich (b. 1999) is a jazz bassist and composer based in both
@@ -82,17 +98,17 @@ export function Main() {
           loading="lazy"
         ></iframe>
       </div>
-      <div className={Style['section']} id={Style['contact']}>
+      <div className={Style["section"]} id={Style["contact"]}>
         <h2>Contact</h2>
         <p>
-          For inquiries, feel free to send Julian an{' '}
+          For inquiries, feel free to send Julian an{" "}
           <Link href="mailto:julianw017@gmail.com">email</Link>.
         </p>
       </div>
       <hr />
-      <div className={Style['section']} id={Style['footer']}>
+      <div className={Style["section"]} id={Style["footer"]}>
         <p>
-          Website by{' '}
+          Website by{" "}
           <Link
             href="https://pjflanagan.me"
             target="_blank"
@@ -102,7 +118,7 @@ export function Main() {
           </Link>
         </p>
         <p>
-          F Cut Violin by Cristian Scarlat from{' '}
+          F Cut Violin by Cristian Scarlat from{" "}
           <Link
             href="https://thenounproject.com/browse/icons/term/f-cut-violin/"
             target="_blank"
@@ -120,7 +136,7 @@ export function Main() {
           )
         </p>
         <p>
-          Icons from
+          Icons from{" "}
           <Link href="https://icons8.com/" target="_blank" title="Icons8">
             Icons8
           </Link>

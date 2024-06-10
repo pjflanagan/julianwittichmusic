@@ -9,9 +9,9 @@ const CALENDAR_EVENTS_ENDPOINT = `https://www.googleapis.com/calendar/v3/calenda
 export async function fetchFutureEvents() {
   const response = await fetch(CALENDAR_EVENTS_ENDPOINT, {
     method: 'GET',
-    body: JSON.stringify({
-      timeMin: Date.now(),
-    })
+    // body: JSON.stringify({
+    //   timeMin: Date.now(),
+    // })
   });
   return await response.json();
 }
@@ -24,6 +24,8 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const events = await fetchFutureEvents();
+
+  // TODO: error handling
 
   res.status(200).json(events.items);
 }
