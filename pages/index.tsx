@@ -13,7 +13,6 @@ export default function Home() {
         <Sidebar>
           <Main />
         </Sidebar>
-        {/* <!-- TODO: Google Analytics --> */}
       </main>
     </div>
   );

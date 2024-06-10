@@ -42,7 +42,6 @@ export function Main() {
           </Link>{" "}
           all summer long.
         </p>
-        {/* <!-- TODO: this would just be so much easier as a react component. I think it's time to move to Nextjs --> */}
         <div className={Style["events-list"]}>
           {eventsList.map((event, i) => {
             console.log(event);

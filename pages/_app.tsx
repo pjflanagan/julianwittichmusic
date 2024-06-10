@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }) {
         {/* <!-- TODO: add a bunch of keywords --> */}
       </Head>
       <Component {...pageProps} />
+      {/* <!-- TODO: Google Analytics --> */}
     </>
   );
 }
