@@ -6,7 +6,6 @@ import { EventsList } from "../../components";
 import { Event } from "../../pages/api/events";
 import { FooterSection } from "../../components/section/FooterSection";
 import { Section } from "../../components/section/Section";
-import copy from "../../copy/main.json";
 import Style from "./style.module.scss";
 
 function chronological(a: Event, b: Event): number {
