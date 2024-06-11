@@ -7,7 +7,8 @@
     display: flex;
     width: 100%;
     padding: 12px;
-    border-bottom: 1px solid $string-color-transparent;
+    border-radius: 2px;
+    // border-bottom: 1px solid $string-color-transparent;
 
     &:last-child {
       border-bottom: none;
@@ -19,6 +20,7 @@
       width: 35%;
 
       .date {
+        color: $string-color !important;
         font-weight: 500;
         margin-bottom: $row-margin;
       }
@@ -32,6 +34,7 @@
       width: calc(65% - 28px);
 
       .location {
+        color: $string-color !important;
         font-weight: 500;
         margin-bottom: $row-margin;
       }
@@ -51,32 +54,11 @@
     text-decoration: none;
 
     .event {
-      border-radius: 2px;
       transition: background 0.2s;
 
       &:hover {
         background: #fff2;
         cursor: pointer;
-      }
-
-      .date-time {
-        .date {
-          color: $string-color !important;
-        }
-
-        .time {
-          color: #fff8 !important;
-        }
-      }
-
-      .event-location {
-        .location {
-          color: $string-color !important;
-        }
-
-        .title {
-          color: #fff8 !important;
-        }
       }
     }
   }
