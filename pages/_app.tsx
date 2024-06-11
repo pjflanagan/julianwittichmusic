@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-
+import { SEO_DESCRIPTION, SEO_KEYWORDS } from '../content/metadata';
 import "../styles/index.scss";
 
 export default function App({ Component, pageProps }) {
@@ -10,7 +10,10 @@ export default function App({ Component, pageProps }) {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-
+        
+        {/* SEO */}
+        <meta name="description" content={SEO_DESCRIPTION} />
+        <meta name="keywords" content={SEO_KEYWORDS} />
         {/* <!-- NOTE: this has to match $background --> */}
         <meta name="theme-color" content="#282828" />
 
@@ -31,8 +34,6 @@ export default function App({ Component, pageProps }) {
           property="og:image:secure_url"
           content="https://julianwittich.com/img/photo/JW-slideshow-bw.jpg"
         />
-
-        {/* <!-- TODO: add a bunch of keywords --> */}
       </Head>
       <Component {...pageProps} />
       {/* <!-- TODO: Google Analytics --> */}

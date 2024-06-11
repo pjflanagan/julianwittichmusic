@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { GuitarVisual } from "./GuitarVisual";
-import Style from './style.module.scss';
+import Style from "./style.module.scss";
 
 export function Canvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,22 +22,36 @@ export function Canvas() {
     visual.current = new GuitarVisual(context);
     visual.current.setup();
     visual.current.start();
-  }
 
-  useEffect(() => {
-    setupCanvas();
     // we list on the body element because the canvas has pointer events disabled
     // (it covers the whole screen and would block important elements)
     document.body.addEventListener(
       "mousemove",
       visual.current!.handleMouseMove
     );
-    // window.addEventListener("resize", setupCanvas);
+  }
+
+  function resetupCanvas() {
+    visual.current?.stop();
+    if (visual.current) {
+      document.body.removeEventListener('mousemove', visual.current.handleMouseMove);
+    }
+    setupCanvas();
+  }
+
+  useEffect(() => {
+    setupCanvas();
+
+    window.addEventListener("resize", resetupCanvas);
 
     return () => {
       visual.current?.stop();
+      if (visual.current) {
+        document.body.removeEventListener('mousemove', visual.current.handleMouseMove);
+      }
+      window.removeEventListener("resize", resetupCanvas);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className={Style['canvas']} />;
+  return <canvas ref={canvasRef} className={Style["canvas"]} />;
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import moment from "moment";
 import { Event } from "../../pages/api/events";
-
+import { Icon } from "../icon";
 import Style from "./style.module.scss";
 
 type FormattedEvent = {
@@ -24,7 +24,9 @@ function formatEvent(event: Event): FormattedEvent {
     time: moment(event.start.dateTime).format("h:mma"),
     date: moment(event.start.dateTime).format("MMM D"),
     location: event.location,
-    link: event.description ? stripHTMLFormatting(event.description) : undefined,
+    link: event.description
+      ? stripHTMLFormatting(event.description)
+      : undefined,
   };
 }
 
@@ -36,9 +38,8 @@ export function EventsList({ eventsList }: EventsListProps) {
   return (
     <div className={Style["events-list"]}>
       {eventsList.map((event, i) => {
-        console.log(event);
         const formattedEvent = formatEvent(event);
-        return (
+        const eventElem = (
           <div key={i} className={Style["event"]}>
             <div className={Style["date-time"]}>
               <div className={Style["date"]}>{formattedEvent.date}</div>
@@ -50,16 +51,24 @@ export function EventsList({ eventsList }: EventsListProps) {
             </div>
             {formattedEvent.link && (
               <div className={Style["link"]}>
-                <Link href={formattedEvent.link} target="_blank">
-                  <div className={Style["link-button"]}>
-                    {/* TODO: one of those open arrow icons */}
-                    Info
-                  </div>
-                </Link>
+                <div className={Style["link-button"]}>
+                  <Icon name="open_in_new" />
+                </div>
               </div>
             )}
           </div>
         );
+        if (formattedEvent.link) {
+          return (
+            <Link
+              href={formattedEvent.link}
+              target="_blank"
+            >
+              {eventElem}
+            </Link>
+          );
+        }
+        return eventElem;
       })}
     </div>
   );

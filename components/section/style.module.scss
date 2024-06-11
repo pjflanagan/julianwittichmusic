@@ -1,0 +1,37 @@
+@import '../../styles/theme.module.scss';
+
+$section-padding: 24px;
+
+.section {
+  padding: 0 $section-padding calc($section-padding / 2) $section-padding;
+
+  &#footer {
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+    text-align: center;
+    font-size: 0.82em;
+    color: #fff3;
+
+    p {
+      margin: 4px 0;
+
+      a {
+        color: #fff3;
+
+        &:hover {
+          color: #fff4;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $md-breakpoint) {
+  .section {
+    padding: 24px 0 0 !important;
+
+    &#footer {
+      padding-bottom: 24px !important;
+    }
+  }
+}
