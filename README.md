@@ -1,9 +1,9 @@
 
 # Julian Wittich Music
 
-## Edit Content
+A musician website featuring events, bio, a contact section, and a strumable bass.
 
-<!-- ### Copy TODO: -->
+## Edit Content
 
 ### Calendar
 
@@ -16,9 +16,15 @@ The calendar can be updated on [Google Calendar](https://calendar.google.com/cal
 - **Description**: Optionally add a brief description (ex: "NYC Jazz Festival" or "Stage 4" or "Featuring Guest Performer"). Formatting will be ignored.
 - **Calendar**: Make sure it is saved to `Julian Wittich Music`.
 
+![Example Google Calendar Event](https://raw.githubusercontent.com/pjflanagan/julianwittichmusic/main/readme/ExampleEvent.png)
+
+<!-- ### Copy TODO: -->
+
 <!-- ### Images TODO: -->
 
-## Dev
+## Development
+
+### Local Dev
 
 Install and run the local Netlify server. You may have to run `nvm use` first.
 
@@ -26,6 +32,6 @@ Install and run the local Netlify server. You may have to run `nvm use` first.
 $ netlify dev
 ```
 
-## Deploy
+### Deploy
 
 Merge to the `main` branch to trigger a Netlify deploy.
