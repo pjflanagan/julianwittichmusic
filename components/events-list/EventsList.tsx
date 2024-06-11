@@ -5,7 +5,7 @@ import { Icon } from "../icon";
 import Style from "./style.module.scss";
 
 type FormattedEvent = {
-  title: string;
+  title?: string;
   time: string;
   date: string;
   location: string;
@@ -20,13 +20,11 @@ function stripHTMLFormatting(htmlString: string): string {
 
 function formatEvent(event: Event): FormattedEvent {
   return {
-    title: event.summary,
+    title: event.description && stripHTMLFormatting(event.description),
     time: moment(event.start.dateTime).format("h:mma"),
     date: moment(event.start.dateTime).format("MMM D"),
-    location: event.location,
-    link: event.description
-      ? stripHTMLFormatting(event.description)
-      : undefined,
+    location: event.summary,
+    link: event.location,
   };
 }
 
@@ -60,10 +58,7 @@ export function EventsList({ eventsList }: EventsListProps) {
         );
         if (formattedEvent.link) {
           return (
-            <Link
-              href={formattedEvent.link}
-              target="_blank"
-            >
+            <Link key={i} href={formattedEvent.link} target="_blank">
               {eventElem}
             </Link>
           );
