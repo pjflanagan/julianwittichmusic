@@ -1,7 +1,7 @@
 import Link from "next/link";
 import moment from "moment";
-import { Event } from "../../pages/api/events";
 import { Icon } from "../icon";
+import { Event } from "../../model";
 import Style from "./style.module.scss";
 
 type FormattedEvent = {
