@@ -1,36 +1,36 @@
 @import '../../styles/theme.module.scss';
 
-#intro,
-hr.intro {
+.intro,
+hr.intro-divider {
   display: none;
 }
 
 $section-padding: 24px;
 
-#events {
+.events {
   padding-top: calc($section-padding / 2);
 }
 
 
-#bio {
+.bio {
   iframe {
     margin: 12px 0;
   }
 }
 
-#contact {
+.contact {
   padding-bottom: calc(2 * $section-padding);
 }
 
 
 @media only screen and (min-width: $md-breakpoint) {
 
-  #intro,
-  hr.intro {
+  .intro,
+  hr.intro-divider {
     display: block;
   }
 
-  #intro {
+  .intro {
     min-height: 100vh;
     padding: 0 !important;
     border: 1px solid #0000;
@@ -48,7 +48,7 @@ $section-padding: 24px;
     }
   }
 
-  #contact {
+  .contact {
     padding-bottom: 24px !important;
   }
 }

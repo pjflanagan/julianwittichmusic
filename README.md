@@ -22,6 +22,10 @@ The calendar can be updated on [Google Calendar](https://calendar.google.com/cal
 
 <!-- ### Images TODO: -->
 
+## Monitor
+
+Site analytics are tracked on [Google Analytics](https://analytics.google.com).
+
 ## Development
 
 ### Local Dev

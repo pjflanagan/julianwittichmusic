@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { SEO_DESCRIPTION, SEO_KEYWORDS } from '../content/metadata';
+import { SEO_DESCRIPTION, SEO_KEYWORDS, SUBTITLE, SUBTITLE_SHORT, TITLE } from '../content/metadata';
 import "../styles/index.scss";
 
 export default function App({ Component, pageProps }) {
@@ -14,15 +14,15 @@ export default function App({ Component, pageProps }) {
         {/* SEO */}
         <meta name="description" content={SEO_DESCRIPTION} />
         <meta name="keywords" content={SEO_KEYWORDS} />
-        {/* <!-- NOTE: this has to match $background --> */}
+        {/* NOTE: this has to match $background */}
         <meta name="theme-color" content="#282828" />
 
         <link rel="icon" href="favicon.ico" sizes="16x16" type="image/x-icon" />
         <link rel="icon" href="favicon.png" sizes="32x32" type="image/png" />
-        <title>Julian Wittich | Jazz Bassist</title>
+        <title>{TITLE} | {SUBTITLE_SHORT}</title>
 
-        <meta property="og:title" content="Julian Wittich" />
-        <meta property="og:description" content="NYC Based Jazz Bassist" />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={SUBTITLE} />
         <meta
           property="og:image"
           content="http://julianwittich.com/img/photo/JW-slideshow-bw.jpg"
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-      {/* <!-- TODO: Google Analytics --> */}
+      {/* TODO: Google Analytics */}
     </>
   );
 }

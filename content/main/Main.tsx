@@ -1,26 +1,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import moment from "moment";
-import { SocialIconRow } from "../../components";
-import { EventsList } from "../../components";
-import { Event } from "../../pages/api/events";
-import { FooterSection } from "../../components/section/FooterSection";
-import { Section } from "../../components/section/Section";
+
+import { SocialIconRow, EventsList, FooterSection, Section, ScrollDownButton } from "../../components";
+import { SUBTITLE, TITLE_FULL } from "../metadata";
+import { Event, filterAndOrderDates } from "../../model";
+
 import Style from "./style.module.scss";
-
-function chronological(a: Event, b: Event): number {
-  return moment(a.end.dateTime).diff(moment(b.end.dateTime));
-}
-
-function filterAndOrderDates(fullEventsList: Event[]): Event[] {
-  const currentTime = moment();
-  return fullEventsList
-    .filter((event) => {
-      const eventEndTime = moment(event.end.dateTime);
-      return eventEndTime.isAfter(currentTime);
-    })
-    .sort(chronological);
-}
 
 export function Main() {
   const [eventsList, setEventsList] = useState<Event[]>([]);
@@ -38,18 +23,19 @@ export function Main() {
 
   return (
     <>
-      <Section id={Style["intro"]}>
+      <Section className={Style["intro"]} id="intro">
         <div className={Style["intro-content"]}>
           <div className={Style["logo-holder"]}>
             <img src="/img/logo/logo.png" width="84" />
           </div>
-          <h1>Julian B. Wittich</h1>
-          <h4>Jazz Bassist performing in NYC</h4>
+          <h1>{TITLE_FULL}</h1>
+          <h4>{SUBTITLE}</h4>
           <SocialIconRow />
         </div>
+        {/* <ScrollDownButton targetId="events" /> */}
       </Section>
-      <hr className={Style["intro"]} />
-      <Section id={Style["events"]}>
+      <hr className={Style["intro-divider"]} />
+      <Section className={Style["events"]} id="events">
         <h2>Events</h2>
         <p>
           You can find Julian performing in{" "}
@@ -63,7 +49,7 @@ export function Main() {
         </p>
         <EventsList eventsList={eventsList} />
       </Section>
-      <Section id={Style["bio"]}>
+      <Section className={Style["bio"]} id="about">
         <h2>About</h2>
         <p>
           Julian Wittich (b. 1999) is a jazz bassist and composer based in both
@@ -91,7 +77,7 @@ export function Main() {
           loading="lazy"
         ></iframe>
       </Section>
-      <Section id={Style["contact"]}>
+      <Section className={Style["contact"]} id="contact">
         <h2>Contact</h2>
         <p>
           For inquiries, feel free to send Julian an{" "}

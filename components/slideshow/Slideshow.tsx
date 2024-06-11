@@ -11,7 +11,7 @@ export function Slideshow() {
     return window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
   }
 
-  function scroll() {
+  function handleScroll() {
     if (!slideshowRef.current) {
       return;
     }
@@ -19,9 +19,11 @@ export function Slideshow() {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', scroll);
-
-  })
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  });
 
   return (
     <div className={Style['slideshow']} ref={slideshowRef}>
