@@ -1,0 +1,16 @@
+@import '../../styles/theme.module.scss';
+
+.scroll-down-button {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 2px;
+  line-height: 0;
+  background: $background-dark-transparent;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &.hidden {
+    opacity: 0;
+  }
+}

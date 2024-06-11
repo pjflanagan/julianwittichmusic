@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { SocialIconRow, EventsList, FooterSection, Section, ScrollDownButton } from "../../components";
+import {
+  SocialIconRow,
+  EventsList,
+  FooterSection,
+  Section,
+  ScrollDownButton,
+} from "../../components";
 import { SUBTITLE, TITLE_FULL } from "../metadata";
 import { Event, filterAndOrderDates } from "../../model";
 
@@ -32,7 +38,9 @@ export function Main() {
           <h4>{SUBTITLE}</h4>
           <SocialIconRow />
         </div>
-        {/* <ScrollDownButton targetId="events" /> */}
+        <div className={Style["scroll-down-button-holder"]}>
+          <ScrollDownButton sourceId="sidebar" targetId="events" />
+        </div>
       </Section>
       <hr className={Style["intro-divider"]} />
       <Section className={Style["events"]} id="events">

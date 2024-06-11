@@ -31,6 +31,7 @@ $section-padding: 24px;
   }
 
   .intro {
+    position: relative;
     min-height: 100vh;
     padding: 0 !important;
     border: 1px solid #0000;
@@ -45,6 +46,15 @@ $section-padding: 24px;
         justify-content: center;
         margin: 0 50% 42px;
       }
+    }
+
+    div.scroll-down-button-holder {
+      display: flex;
+      justify-content: right;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      margin-bottom: $section-padding;
     }
   }
 

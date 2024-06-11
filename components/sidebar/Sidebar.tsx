@@ -8,7 +8,7 @@ type SidebarProps = {
 
 export function Sidebar({ children }: SidebarProps) {
   return (
-    <div className={Style['sidebar']}>
+    <div className={Style['sidebar']} id="sidebar">
       <div className={Style['sidebar-strings']}>
         <div className={Style['string']}></div>
         <div className={Style['string']}></div>
