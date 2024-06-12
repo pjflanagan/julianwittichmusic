@@ -32,6 +32,14 @@ div.slideshow {
       color: #fff;
     }
   }
+
+  div.scroll-down-button-holder {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: calc(100vh - 100px);
+    width: 100%;
+  }
 }
 
 
@@ -41,6 +49,10 @@ div.slideshow {
 
     div.header {
       display: none;
+    }
+
+    div.scroll-down-button-holder {
+      display: none !important;
     }
   }
 }

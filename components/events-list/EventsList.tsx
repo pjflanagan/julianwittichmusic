@@ -5,7 +5,7 @@ import { Event } from "../../model";
 import Style from "./style.module.scss";
 
 type FormattedEvent = {
-  title?: string;
+  description?: string;
   time: string;
   date: string;
   location: string;
@@ -20,10 +20,10 @@ function stripHTMLFormatting(htmlString: string): string {
 
 function formatEvent(event: Event): FormattedEvent {
   return {
-    title: event.description && stripHTMLFormatting(event.description),
     time: moment(event.start.dateTime).format("h:mma"),
     date: moment(event.start.dateTime).format("MMM D"),
     location: event.summary,
+    description: event.description && stripHTMLFormatting(event.description),
     link: event.location,
   };
 }
@@ -45,7 +45,7 @@ export function EventsList({ eventsList }: EventsListProps) {
             </div>
             <div className={Style["event-location"]}>
               <div className={Style["location"]}>{formattedEvent.location}</div>
-              <div className={Style["title"]}>{formattedEvent.title}</div>
+              <div className={Style["description"]}>{formattedEvent.description}</div>
             </div>
             {formattedEvent.link && (
               <div className={Style["link"]}>

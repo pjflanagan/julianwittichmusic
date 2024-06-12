@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { Section } from "./Section";
-import Style from './style.module.scss';
+import Style from "./style.module.scss";
 
 export function FooterSection() {
   return (
-    <Section id={Style['footer']}>
+    <Section id={Style["footer"]}>
       <p>
         Website by{" "}
         <Link
@@ -24,15 +24,17 @@ export function FooterSection() {
           title="F Cut Violin Icons"
         >
           Noun Project
-        </Link>
-        (
-        <Link
-          href="https://creativecommons.org/licenses/by/3.0/"
-          target="_blank"
-        >
-          CC BY 3.0
-        </Link>
-        )
+        </Link>{" "}
+        <span style={{ textWrap: "nowrap" }}>
+          (
+          <Link
+            href="https://creativecommons.org/licenses/by/3.0/"
+            target="_blank"
+          >
+            CC BY 3.0
+          </Link>
+          )
+        </span>
       </p>
       <p>
         Icons from{" "}

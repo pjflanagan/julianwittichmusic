@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { SocialIconRow } from "../social-icon-row";
 import Style from './style.module.scss';
+import { ScrollDownButton } from "../scroll-down-button";
 
 const PARALLAX_RATE = 1/4;
 
@@ -34,6 +35,9 @@ export function Slideshow() {
         <div className={Style['title-holder']}>Julian B. Wittich</div>
         <SocialIconRow />
       </div>
+      <div className={Style["scroll-down-button-holder"]}>
+          <ScrollDownButton color="light" targetId="sidebar" />
+        </div>
     </div>
   );
 }

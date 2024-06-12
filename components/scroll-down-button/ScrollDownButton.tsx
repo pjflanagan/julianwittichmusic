@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Icon } from "../";
 import Style from "./style.module.scss";
 import animateScrollTo from "animated-scroll-to";
+import classNames from 'classnames';
 
 const HIDE_BUTTON_SCROLL_DISTANCE = 180;
 
 type ScrollDownButtonProps = {
   sourceId?: string;
   targetId: string;
-  // color: TODO: 'light' | 'dark'
+  color?: 'light' | 'dark'
 };
 
 export function ScrollDownButton({
   sourceId,
   targetId,
-  // color = 'light'
+  color = 'light'
 }: ScrollDownButtonProps) {
   const [scrollDistance, setScrollDistance] = useState(0);
 
@@ -48,10 +49,11 @@ export function ScrollDownButton({
     }
   }
 
+  const className = classNames(Style["scroll-down-button"], Style[color]);
   const opacity = Math.max(1 - scrollDistance / HIDE_BUTTON_SCROLL_DISTANCE, 0);
   return (
     <div
-      className={Style["scroll-down-button"]}
+      className={className}
       onClick={handleClick}
       style={{ opacity }}
     >

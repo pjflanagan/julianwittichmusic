@@ -39,7 +39,7 @@ export function Main() {
           <SocialIconRow />
         </div>
         <div className={Style["scroll-down-button-holder"]}>
-          <ScrollDownButton sourceId="sidebar" targetId="events" />
+          <ScrollDownButton color="dark" sourceId="sidebar" targetId="events" />
         </div>
       </Section>
       <hr className={Style["intro-divider"]} />

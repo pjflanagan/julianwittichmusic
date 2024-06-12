@@ -39,7 +39,7 @@
         margin-bottom: $row-margin;
       }
 
-      .title {
+      .description {
         color: #fff8 !important;
       }
     }
@@ -55,10 +55,10 @@
 
     .event {
       transition: background 0.2s;
+      cursor: pointer;
 
       &:hover {
         background: #fff2;
-        cursor: pointer;
       }
     }
   }
