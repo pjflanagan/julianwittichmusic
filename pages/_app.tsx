@@ -28,7 +28,6 @@ export default function App({ Component, pageProps }) {
           content="http://julianwittich.com/img/photo/JW-slideshow-bw.jpg"
         />
         <meta property="og:url" content="https://julianwittich.com/" />
-
         <meta property="og:type" content="website" />
         <meta
           property="og:image:secure_url"

@@ -9,20 +9,22 @@ A musician website featuring events, bio, a contact section, and a strumable bas
 
 The calendar can be updated on [Google Calendar](https://calendar.google.com/calendar/u/0?cid=OGUzNTBmMTdhNzRhN2RiZDg0ZWI1OWFmNWI5YzJlODVlNjRkY2Q4ZTZjMmQ2ZWNmMWRkZGZmNjliMTk0YTZhZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t). When adding an event, be sure to format the information correctly:
 
+<!-- - **Timezone**: TODO: -->
 - **Title**: Enter the name of the event venue.
 - **Time**: Only the start time is displayed. The event will be displayed until the end time is reached.
-<!-- - **Timezone**: TODO: -->
 - **Location**: Optionally enter the URL of a details or ticketing page.
-- **Description**: Optionally add a brief description (ex: "NYC Jazz Festival" or "Stage 4" or "Featuring Guest Performer"). Formatting will be ignored.
-- **Calendar**: Make sure it is saved to `Julian Wittich Music`.
+- **Description**: Optionally add a brief description (ex: "NYC Jazz Festival" or "South Stage" or "Featuring Guest Performer"). Formatting will be ignored.
+- **Calendar**: Make sure it is saved the `Julian Wittich Music` calendar.
 
 ![Example Google Calendar Event](https://raw.githubusercontent.com/pjflanagan/julianwittichmusic/main/readme/ExampleEvent.png)
 
 ### Copy 
 
-The site's copy is managed through a few blog posts on [Blogger](https://www.blogger.com/blog/posts/2761611771015880407?hl=en&tab=jj)
-
-Simply edit the content of the section that needs updating. 
+The site's copy is managed through a few blog posts on [Blogger](https://www.blogger.com/blog/posts/2761611771015880407?hl=en&tab=jj). When editing a section be sure to use the HTML view to prevent unwanted formatting from being added. Available tags:
+- `p`: paragraph
+- `a`: link (be sure to include `target="_blank"` on links so they open in new pages)
+- `b`: bold
+- `i`: italics
 
 <!-- ### Images TODO: -->
 
