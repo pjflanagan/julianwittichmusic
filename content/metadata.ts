@@ -1,7 +1,7 @@
 
 export const TITLE = 'Julian Wittich';
 export const TITLE_FULL = 'Julian B. Wittich';
-export const SUBTITLE = 'Jazz Bassist performing in NYC';
+export const SUBTITLE = 'Jazz Bassist';
 export const SUBTITLE_SHORT = 'Jazz Bassist';
 
 export const SEO_KEYWORDS = [
@@ -24,13 +24,23 @@ export const SEO_KEYWORDS = [
   'jazz bass player',
   'bassist',
   'bass player',
+  'double bass',
+  'double bass player',
   'upright bass',
   'upright bass player',
   'bass',
   'the bass',
   'New York City',
+  'Taipei',
+  'Taiwan',
+  'The Netherlands',
+  'Conservatorium van Amsterdam',
+  'composer',
+  'musical',
+  'double bass',
+  'style'
 ].join(', ');
 
 export const SEO_DESCRIPTION = `
-  Julian Wittich is a NYC based jazz musician.
+  Julian Wittich is a NYC based jazz musician specializing in the double bass.
 `;

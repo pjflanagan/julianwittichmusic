@@ -3,13 +3,13 @@ import { Canvas } from "../components/canvas";
 import { Sidebar } from "../components/sidebar";
 import { Slideshow } from "../components/slideshow";
 import { Main } from "../content";
-import { PostNameMap, fetchBlogPost } from "./api/content";
+import { SiteContent, fetchSiteContent } from "./api/content";
 import { Event, filterAndOrderDates } from "../model";
 import { fetchEventsApi } from "./api/events";
 
 export type HomePageProps = {
   eventsList: Event[];
-  content: PostNameMap;
+  content: SiteContent;
 }
 
 export async function getServerSideProps() {
@@ -18,12 +18,7 @@ export async function getServerSideProps() {
     return filterAndOrderDates(events);
   }
 
-  async function fetchAboutSectionContent(): Promise<PostNameMap> {
-    const [about, contact] = await Promise.all([fetchBlogPost('about'), fetchBlogPost('contact')]);
-    return { about, contact };
-  }
-
-  const [eventsList, content] = await Promise.all([fetchEvents(), fetchAboutSectionContent()]);
+  const [eventsList, content] = await Promise.all([fetchEvents(), fetchSiteContent()]);
 
   return {
     props: {

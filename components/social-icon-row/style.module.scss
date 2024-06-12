@@ -5,8 +5,10 @@
   width: 100%;
 
   a {
+    margin: 6px;
+
     img {
-      margin: 8px;
+      margin: 4px 6px;
       opacity: 0.8;
       transition: opacity 0.2s;
     }
