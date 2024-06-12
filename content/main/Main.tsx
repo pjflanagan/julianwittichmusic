@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import {
   SocialIconRow,
   EventsList,
@@ -9,33 +7,12 @@ import {
 import {
   ScrollDownButton,
 } from '../../components/scroll-down-button';
-import { PostNameMap } from "../../pages/api/content";
 import { SUBTITLE, TITLE_FULL } from "../metadata";
-import { Event, filterAndOrderDates } from "../../model";
+import { HomePageProps } from '../../pages/index';
 
 import Style from "./style.module.scss";
 
-export function Main() {
-  const [eventsList, setEventsList] = useState<Event[]>([]);
-  const [content, setContent] = useState<PostNameMap>();
-
-  async function fetchEvents() {
-    const response = await fetch("/api/events");
-    const fullEventsList: Event[] = await response.json();
-    const futureEventsList = filterAndOrderDates(fullEventsList);
-    setEventsList(futureEventsList);
-  }
-
-  async function fetchAboutSectionContent() {
-    const response = await fetch("/api/content");
-    const newContent: PostNameMap = await response.json();
-    setContent(newContent);
-  }
-
-  useEffect(() => {
-    Promise.all([fetchEvents(), fetchAboutSectionContent()]);
-  }, []);
-
+export function Main({ eventsList = [], content }: HomePageProps) {
   return (
     <>
       <Section className={Style["intro"]} id="intro">

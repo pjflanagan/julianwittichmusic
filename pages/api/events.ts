@@ -9,30 +9,26 @@ const CALENDAR_EVENTS_ENDPOINT = `https://www.googleapis.com/calendar/v3/calenda
 
 type ResponseData = Event[];
 
-export async function fetchFutureEvents() {
-  const response = await fetch(CALENDAR_EVENTS_ENDPOINT, {
-    method: 'GET',
-    // body: JSON.stringify({
-    //   timeMin: Date.now(),
-    // })
-  });
-  return await response.json();
+export async function fetchEventsApi() {
+  try {
+    const response = await fetch(CALENDAR_EVENTS_ENDPOINT, {
+      method: 'GET',
+    });
+    const responseData = await response.json();
+    if (responseData.error) {
+      throw responseData.error.message;
+    }
+    return responseData.items;
+  } catch (e) {
+    console.error('Error fetching Google Calendar API: ', e);
+  }
+  return [];
 }
 
 export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  let items = [];
-  try {
-    const events = await fetchFutureEvents();
-    if (events.error) {
-      throw events.error.message;
-    }
-    items = events.items;
-  } catch(e) {
-    console.error('Error fetching Google Calendar API: ', e)
-  }
-
-  res.status(200).json(items);
+  const events = await fetchEventsApi();
+  res.status(200).json(events);
 }

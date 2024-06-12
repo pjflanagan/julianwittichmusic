@@ -20,7 +20,6 @@ type ResponseData = PostNameMap;
 
 export async function fetchBlogPost(post: PostName) {
   try {
-
     const response = await fetch(getBloggerPostEndpoint(post), {
       method: 'GET',
     });
@@ -32,13 +31,14 @@ export async function fetchBlogPost(post: PostName) {
   } catch (e) {
     console.error('Error fetching Blogger API: ', e)
   }
+  return '';
 }
 
 export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-    const [about, contact] = await Promise.all([fetchBlogPost('about'), fetchBlogPost('contact')]);
+  const [about, contact] = await Promise.all([fetchBlogPost('about'), fetchBlogPost('contact')]);
 
   res.status(200).json({
     about, contact

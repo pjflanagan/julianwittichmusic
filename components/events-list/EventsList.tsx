@@ -3,6 +3,7 @@ import moment from "moment";
 import { Icon } from "../icon";
 import { Event } from "../../model";
 import Style from "./style.module.scss";
+import { stripHtml } from "string-strip-html";
 
 type FormattedEvent = {
   description?: string;
@@ -12,18 +13,12 @@ type FormattedEvent = {
   link?: string;
 };
 
-function stripHTMLFormatting(htmlString: string): string {
-  const div = document.createElement("div");
-  div.innerHTML = htmlString;
-  return div.textContent || div.innerText || "";
-}
-
 function formatEvent(event: Event): FormattedEvent {
   return {
     time: moment(event.start.dateTime).format("h:mma"),
     date: moment(event.start.dateTime).format("MMM D"),
     location: event.summary,
-    description: event.description && stripHTMLFormatting(event.description),
+    description: stripHtml(event.description || '').result,
     link: event.location,
   };
 }
