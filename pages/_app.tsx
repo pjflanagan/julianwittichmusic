@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
 
         <link rel="icon" href="favicon.ico" sizes="16x16" type="image/x-icon" />
         <link rel="icon" href="favicon.png" sizes="32x32" type="image/png" />
-        <title>{TITLE} | {SUBTITLE_SHORT}</title>
+        <title>{`${TITLE} | ${SUBTITLE_SHORT}`}</title>
 
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={SUBTITLE} />

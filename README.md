@@ -18,7 +18,11 @@ The calendar can be updated on [Google Calendar](https://calendar.google.com/cal
 
 ![Example Google Calendar Event](https://raw.githubusercontent.com/pjflanagan/julianwittichmusic/main/readme/ExampleEvent.png)
 
-<!-- ### Copy TODO: -->
+### Copy 
+
+The site's copy is managed through a few blog posts on [Blogger](https://www.blogger.com/blog/posts/2761611771015880407?hl=en&tab=jj)
+
+Simply edit the content of the section that needs updating. 
 
 <!-- ### Images TODO: -->
 

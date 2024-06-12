@@ -6,8 +6,11 @@ import {
   EventsList,
   FooterSection,
   Section,
-  ScrollDownButton,
 } from "../../components";
+import {
+  ScrollDownButton,
+} from '../../components/scroll-down-button';
+import { PostNameMap } from "../../pages/api/content";
 import { SUBTITLE, TITLE_FULL } from "../metadata";
 import { Event, filterAndOrderDates } from "../../model";
 
@@ -15,6 +18,7 @@ import Style from "./style.module.scss";
 
 export function Main() {
   const [eventsList, setEventsList] = useState<Event[]>([]);
+  const [content, setContent] = useState<PostNameMap>();
 
   async function fetchEvents() {
     const response = await fetch("/api/events");
@@ -23,8 +27,14 @@ export function Main() {
     setEventsList(futureEventsList);
   }
 
+  async function fetchAboutSectionContent() {
+    const response = await fetch("/api/content");
+    const newContent: PostNameMap = await response.json();
+    setContent(newContent);
+  }
+
   useEffect(() => {
-    fetchEvents();
+    Promise.all([fetchEvents(), fetchAboutSectionContent()]);
   }, []);
 
   return (
@@ -43,37 +53,15 @@ export function Main() {
         </div>
       </Section>
       <hr className={Style["intro-divider"]} />
-      <Section className={Style["events"]} id="events">
-        <h2>Events</h2>
-        <p>
-          You can find Julian performing in{" "}
-          <Link
-            href="https://maps.app.goo.gl/xh3V6TjgnDdKoPpJ6"
-            target="_blank"
-          >
-            Washington Square Park
-          </Link>{" "}
-          all summer long.
-        </p>
-        <EventsList eventsList={eventsList} />
-      </Section>
-      <Section className={Style["bio"]} id="about">
+      {eventsList.length > 0 && (
+        <Section className={Style["events"]} id="events">
+          <h2>Events</h2>
+          <EventsList eventsList={eventsList} />
+        </Section>
+      )}
+      <Section className={Style["about"]} id="about">
         <h2>About</h2>
-        <p>
-          Julian Wittich (b. 1999) is a jazz bassist and composer based in both
-          Amsterdam and Taipei. Born and raised in Taipei, Taiwan, Wittich began
-          his musical studies with the violin at 7 years old. He soon discovered
-          his appetite for various styles of music, teaching himself to play the
-          electric bass at age 13 and eventually the double bass at age 17.
-        </p>
-        <p>
-          Currently studying at the Conservatorium van Amsterdam with some of
-          Europe's most in demand jazz bassists, including Frans van der Hoeven,
-          Clemens van der Feen, and John Clayton. Since coming back to Taiwan in
-          March 2020, he has been making a name for himself in Taiwan's jazz
-          scene, and has also been working with established pop artists in Asia,
-          including JJ Lin and 9m88.
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: content?.about || '' }} />
         <iframe
           style={{ borderRadius: 12 }}
           src="https://open.spotify.com/embed/artist/64mWZmWHfA6SoxqoibbwbR?utm_source=generator&theme=0"
@@ -87,10 +75,7 @@ export function Main() {
       </Section>
       <Section className={Style["contact"]} id="contact">
         <h2>Contact</h2>
-        <p>
-          For inquiries, feel free to send Julian an{" "}
-          <Link href="mailto:julianw017@gmail.com">email</Link>.
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: content?.contact || '' }} />
       </Section>
       <hr />
       <FooterSection />
