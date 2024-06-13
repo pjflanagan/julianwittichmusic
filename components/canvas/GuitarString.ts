@@ -33,6 +33,21 @@ export class GuitarString {
     this.to = this.pullPoint;
   }
 
+  // sets the pull point and the to point
+  setPullPoint(point: Point) {
+    this.pullPoint = point;
+    this.setNextToPoint();
+  }
+
+  setRandomInitialPullPoint() {
+    const { H } = this.visual.getSize();
+    this.setPullPoint({
+      // x: Math.round(Math.random() * 2) - 1 * GUITAR_STRING.MAX_OFFSET_X, // NOTE: no
+      x: GUITAR_STRING.MAX_OFFSET_X, // NOTE: no reason to randomize the x value because it's symetrical anyway
+      y: Math.floor(Math.random() * H)
+    })
+  }
+
   getDefaultPullPoint() {
     const { H } = this.visual.getSize();
     return { x: 0, y: H / 2 + GUITAR_STRING.OFFSCREEN };
@@ -52,6 +67,7 @@ export class GuitarString {
     }
   }
 
+  // moves the pull point with respect to itself
   movePullPoint() {
     this.pullPoint = Motion.moveTowardsPoint(this.pullPoint, this.to, 2);
   }
@@ -78,8 +94,7 @@ export class GuitarString {
 
     if (this.state === 'held') {
       // if it's held then the pull point is the mouse position and we should prep the next to point
-      this.pullPoint = Geometry.difference(mousePos, this.position);
-      this.setNextToPoint();
+      this.setPullPoint(Geometry.difference(mousePos, this.position));
     } else if (!this.shouldStop()) {
       // Otherwise we have released and we should move the pull point
       this.movePullPoint();

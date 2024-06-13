@@ -25,13 +25,13 @@ export default function App({ Component, pageProps }) {
         <meta property="og:description" content={SUBTITLE} />
         <meta
           property="og:image"
-          content="http://julianwittich.com/img/photo/JW-slideshow-bw.jpg"
+          content="http://julianwittich.com/img/photo/jw-photoshoot-002.jpg"
         />
         <meta property="og:url" content="https://julianwittich.com/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image:secure_url"
-          content="https://julianwittich.com/img/photo/JW-slideshow-bw.jpg"
+          content="https://julianwittich.com/img/photo/jw-photoshoot-002.jpg"
         />
       </Head>
       <Component {...pageProps} />

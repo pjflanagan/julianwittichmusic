@@ -14,23 +14,23 @@ The calendar can be updated on [Google Calendar](https://calendar.google.com/cal
 - **Time**: Only the start time is displayed. The event will be displayed until the end time is reached.
 - **Location**: Optionally enter the URL of a details or ticketing page.
 - **Description**: Optionally add a brief description (ex: "NYC Jazz Festival" or "South Stage" or "Featuring Guest Performer"). Formatting will be ignored.
-- **Calendar**: Make sure it is saved the `Julian Wittich Music` calendar.
+- **Calendar**: Make sure it is saved to the `Julian Wittich Music` calendar.
 
 ![Example Google Calendar Event](https://raw.githubusercontent.com/pjflanagan/julianwittichmusic/main/readme/ExampleEvent.png)
 
 ### Copy 
 
 The site's copy is managed through a few blog posts on [Blogger](https://www.blogger.com/blog/posts/2761611771015880407?hl=en&tab=jj). When editing a section be sure to use the HTML view to prevent unwanted formatting from being added. Available tags:
-- `p`: paragraph
-- `a`: link (be sure to include `target="_blank"` on links so they open in new pages)
+- `p`: be sure to wrap all paragraphs in `<p>` tags
+- `a`: link (be sure to include `target="_blank"` on link tags so they open in new pages)
 - `b`: bold
 - `i`: italics
 
 <!-- ### Images TODO: -->
 
-## Monitor
+<!-- ## Monitor
 
-Site analytics are tracked on [Google Analytics](https://analytics.google.com).
+Site analytics are tracked on [Google Analytics](https://analytics.google.com). -->
 
 ## Development
 
