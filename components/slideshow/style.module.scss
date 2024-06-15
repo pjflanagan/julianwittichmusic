@@ -15,11 +15,12 @@ div.slideshow {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    padding: 12px;
+    margin-top: 42px;
 
     div.logo-holder {
       display: flex;
       justify-content: center;
+      margin: 0 0 8px;
       width: 100%;
     }
 
@@ -37,7 +38,7 @@ div.slideshow {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: calc(100vh - 100px);
+    top: calc(100vh - 240px);
     width: 100%;
   }
 }

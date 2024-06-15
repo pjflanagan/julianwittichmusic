@@ -29,7 +29,7 @@ export function Slideshow() {
   return (
     <div className={Style['slideshow']} ref={slideshowRef}>
       <div className={Style['header']}>
-        <div className={Style['logo-header']}>
+        <div className={Style['logo-holder']}>
           <img src="/img/logo/logo.png" width="28" height="38" />
         </div>
         <div className={Style['title-holder']}>Julian B. Wittich</div>
