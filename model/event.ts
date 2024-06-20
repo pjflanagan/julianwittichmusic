@@ -9,9 +9,9 @@ type TimezonedDatetime = {
 export type Event = {
   start: TimezonedDatetime;
   end: TimezonedDatetime;
-  summary: string;
+  summary: string; // title (should be location)
   description: string;
-  location: string;
+  location: string; // link to event
 }
 
 function chronological(a: Event, b: Event): number {

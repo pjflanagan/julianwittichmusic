@@ -17,7 +17,7 @@ export function Main({ eventsList = [], content }: HomePageProps) {
       <Section className={Style["intro"]} id="intro">
         <div className={Style["intro-content"]}>
           <div className={Style["logo-holder"]}>
-            <img src="/img/logo/logo.png" width="84" />
+            <img src="/img/logo/logo.png" width="84" alt={`${content.name} Logo`} />
           </div>
           <h1>{content.name}</h1>
           <h4>{content.description}</h4>

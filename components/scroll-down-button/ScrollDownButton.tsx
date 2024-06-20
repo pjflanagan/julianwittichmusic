@@ -1,50 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Icon } from "../";
 import Style from "./style.module.scss";
 import animateScrollTo from "animated-scroll-to";
-import classNames from 'classnames';
+import classNames from "classnames";
+import { getSourceElement } from "../../util";
+import { useScrollDistance } from "../../hooks";
 
 const HIDE_BUTTON_SCROLL_DISTANCE = 180;
 
 type ScrollDownButtonProps = {
   sourceId?: string;
   targetId: string;
-  color?: 'light' | 'dark'
+  color?: "light" | "dark";
 };
 
 export function ScrollDownButton({
   sourceId,
   targetId,
-  color = 'light'
+  color = "light",
 }: ScrollDownButtonProps) {
-  const [scrollDistance, setScrollDistance] = useState(0);
-
-  function getSourceElement() {
-    return sourceId ? document.getElementById(sourceId) : window;
-  }
-
-  useEffect(() => {
-    function handleScroll() {
-      const scrollDistance = sourceId
-        ? document.getElementById(sourceId)?.scrollTop
-        : window.scrollY;
-      setScrollDistance(scrollDistance || 0);
-    }
-
-    const sourceElement = getSourceElement();
-    sourceElement?.addEventListener("scroll", handleScroll);
-    return () => {
-      sourceElement?.removeEventListener("scroll", handleClick);
-    };
-  });
+  const scrollDistance = useScrollDistance(sourceId);
 
   function handleClick() {
-    const sourceElement = getSourceElement();
+    const sourceElement = getSourceElement(sourceId);
     const targetElement = document.getElementById(targetId);
     if (sourceElement && targetElement) {
       animateScrollTo(targetElement.offsetTop, {
         elementToScroll: sourceElement,
-        minDuration: 400
+        minDuration: 400,
       });
     }
   }
@@ -52,12 +35,10 @@ export function ScrollDownButton({
   const className = classNames(Style["scroll-down-button"], Style[color]);
   const opacity = Math.max(1 - scrollDistance / HIDE_BUTTON_SCROLL_DISTANCE, 0);
   return (
-    <div
-      className={className}
-      onClick={handleClick}
-      style={{ opacity }}
-    >
+    // <a href={`#${targetId}`} >
+    <div className={className} style={{ opacity }} onClick={handleClick}>
       <Icon name="south" />
     </div>
+    // </a>
   );
 }

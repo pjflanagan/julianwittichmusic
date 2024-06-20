@@ -53,7 +53,7 @@ export function EventsList({ eventsList }: EventsListProps) {
         );
         if (formattedEvent.link) {
           return (
-            <Link key={i} href={formattedEvent.link} target="_blank">
+            <Link key={i} href={formattedEvent.link} target="_blank" title={formattedEvent.location}>
               {eventElem}
             </Link>
           );

@@ -33,7 +33,7 @@ export default function Home(props: HomePageProps) {
     <div>
       <main>
         <Canvas />
-        <Slideshow />
+        <Slideshow title={props.content.name} />
         <Sidebar>
           <Main {...props} />
         </Sidebar>

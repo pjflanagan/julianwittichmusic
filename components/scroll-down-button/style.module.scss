@@ -11,6 +11,7 @@
   background: $background-dark-transparent;
   cursor: pointer;
   transition: background 0.2s, padding-top 0.2s;
+  color: #fff;
 
   &.light {
     background: $string-color-less-transparent;

@@ -1,43 +1,41 @@
 import React, { useEffect, useRef } from "react";
 import { SocialIconRow } from "../social-icon-row";
-import Style from './style.module.scss';
+import Style from "./style.module.scss";
 import { ScrollDownButton } from "../scroll-down-button";
+import { useScroll } from "../../hooks";
 
-const PARALLAX_RATE = 1/4;
+const PARALLAX_RATE = 1 / 4;
 
-export function Slideshow() {
+type SlideshowProps = {
+  title: string;
+};
+
+export function Slideshow({ title }: SlideshowProps) {
   const slideshowRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    function getScrollTop() {
-      return window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+  function handleScroll(scrollTop: number) {
+    if (!slideshowRef.current) {
+      return;
     }
-  
-    function handleScroll() {
-      if (!slideshowRef.current) {
-        return;
-      }
-      slideshowRef.current.style.top = `${-getScrollTop() * PARALLAX_RATE}px`;
-    }
+    slideshowRef.current.style.top = `${-scrollTop * PARALLAX_RATE}px`;
+  }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
-  });
+  useScroll(handleScroll);
 
   return (
-    <div className={Style['slideshow']} ref={slideshowRef}>
-      <div className={Style['header']}>
-        <div className={Style['logo-holder']}>
-          <img src="/img/logo/logo.png" width="28" height="38" />
+    <div className={Style["slideshow"]} ref={slideshowRef}>
+      <div className={Style["header"]}>
+        <div className={Style["logo-holder"]}>
+          <img src="/img/logo/logo.png" width="28" height="38" alt={title} />
         </div>
-        <div className={Style['title-holder']}>Julian B. Wittich</div>
+        <div className={Style["title-holder"]}>
+          <h1>{title}</h1>
+        </div>
         <SocialIconRow />
       </div>
       <div className={Style["scroll-down-button-holder"]}>
-          <ScrollDownButton color="light" targetId="sidebar" />
-        </div>
+        <ScrollDownButton color="light" targetId="sidebar" />
+      </div>
     </div>
   );
 }
