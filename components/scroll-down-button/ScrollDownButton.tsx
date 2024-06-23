@@ -35,6 +35,7 @@ export function ScrollDownButton({
   const className = classNames(Style["scroll-down-button"], Style[color]);
   const opacity = Math.max(1 - scrollDistance / HIDE_BUTTON_SCROLL_DISTANCE, 0);
   return (
+    // CONSIDER: the <a> tag. I like getting /#events but I don't like /#sidebar
     // <a href={`#${targetId}`} >
     <div className={className} style={{ opacity }} onClick={handleClick}>
       <Icon name="south" />

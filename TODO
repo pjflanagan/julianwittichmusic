@@ -4,6 +4,8 @@
 - [x] H1 tag on mobile for the title of the page
 - [x] add location to title "in NYC" for SEO reasons
 
+- [ ] TODO: fix timezones to be whatever timezone the event is in
+
 - [ ] install an ally
 - [ ] back to top arrow
 - [ ] make the scroll thing update the url and just prevent the default, just a <a href="#">
@@ -11,6 +13,7 @@
 - [ ] add keywords to the link to my own page <a>Website by Peter Flanagan</a>
 - [ ] make a Google Keywords account
 
+https://pagespeed.web.dev/analysis/https-julianwittich-com/31fdjkqq9z?form_factor=desktop
 
 - [ ] upright bass auto plucks, add a fingerPoint where the curve ends
 
