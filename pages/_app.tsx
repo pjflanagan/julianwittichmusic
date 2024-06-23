@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { SEO_DESCRIPTION, SEO_KEYWORDS, SUBTITLE, TITLE } from '../content/metadata';
 import "../styles/index.scss";
 
@@ -35,7 +36,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-      {/* TODO: Google Analytics */}
+      <GoogleAnalytics gaId="G-C8DZ6MX5F4" />
     </>
   );
 }
