@@ -16,7 +16,7 @@ type FormattedEvent = {
 function formatEvent(event: Event): FormattedEvent {
   return {
     time: moment(event.start.dateTime).format("h:mma"),
-    date: moment(event.start.dateTime).format("MMM D"),
+    date: moment(event.start.dateTime).format("ddd, MMM D"),
     location: event.summary,
     description: stripHtml(event.description || '').result,
     link: event.location,
