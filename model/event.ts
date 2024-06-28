@@ -1,5 +1,5 @@
 
-import moment from "moment";
+import moment, { Moment } from "moment-timezone";
 
 type TimezonedDatetime = {
   dateTime: string;
@@ -14,16 +14,20 @@ export type Event = {
   location: string; // link to event
 }
 
+export function getTimezonedDate(timezonedDatetime: TimezonedDatetime): Moment {
+  return moment(timezonedDatetime.dateTime).tz(timezonedDatetime.timeZone);
+}
+
 function chronological(a: Event, b: Event): number {
-  return moment(a.end.dateTime).diff(moment(b.end.dateTime));
+  return getTimezonedDate(a.end).diff(getTimezonedDate(b.end));
 }
 
 export function filterAndOrderDates(fullEventsList: Event[]): Event[] {
   const currentTime = moment();
   return fullEventsList
-    .filter((event) => {
-      const eventEndTime = moment(event.end.dateTime);
-      return eventEndTime.isAfter(currentTime);
-    })
+    // .filter((event) => {
+    //   const eventEndTime = getTimezonedDate(event.end);
+    //   return eventEndTime.isAfter(currentTime);
+    // })
     .sort(chronological);
 }

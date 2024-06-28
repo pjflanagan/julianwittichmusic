@@ -1,7 +1,6 @@
 import Link from "next/link";
-import moment from "moment";
 import { Icon } from "../icon";
-import { Event } from "../../model";
+import { Event, getTimezonedDate } from "../../model";
 import Style from "./style.module.scss";
 import { stripHtml } from "string-strip-html";
 
@@ -15,8 +14,8 @@ type FormattedEvent = {
 
 function formatEvent(event: Event): FormattedEvent {
   return {
-    time: moment(event.start.dateTime).format("h:mma"),
-    date: moment(event.start.dateTime).format("ddd, MMM D"),
+    time: getTimezonedDate(event.start).format("h:mma"),
+    date: getTimezonedDate(event.start).format("ddd, MMM D"),
     location: event.summary,
     description: stripHtml(event.description || '').result,
     link: event.location,
