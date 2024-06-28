@@ -26,6 +26,8 @@ export function filterAndOrderDates(fullEventsList: Event[]): Event[] {
   const currentTime = moment();
   return fullEventsList
     .filter((event) => {
+      // this function is run on a server in the eastern timezone (same as the google calendar)
+      // so we don't apply the timezone when filtering
       const eventEndTime = moment(event.end.dateTime);
       return eventEndTime.isAfter(currentTime);
     })
