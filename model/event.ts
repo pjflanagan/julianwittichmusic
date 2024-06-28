@@ -25,9 +25,9 @@ function chronological(a: Event, b: Event): number {
 export function filterAndOrderDates(fullEventsList: Event[]): Event[] {
   const currentTime = moment();
   return fullEventsList
-    // .filter((event) => {
-    //   const eventEndTime = getTimezonedDate(event.end);
-    //   return eventEndTime.isAfter(currentTime);
-    // })
+    .filter((event) => {
+      const eventEndTime = moment(event.end.dateTime);
+      return eventEndTime.isAfter(currentTime);
+    })
     .sort(chronological);
 }
