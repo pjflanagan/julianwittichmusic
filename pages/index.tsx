@@ -3,27 +3,19 @@ import { Canvas } from "../components/canvas";
 import { Sidebar } from "../components/sidebar";
 import { Slideshow } from "../components/slideshow";
 import { Main } from "../content";
-import { SiteContent, fetchSiteContent } from "./api/content";
-import { Event, filterAndOrderDates } from "../model";
-import { fetchEventsApi } from "./api/events";
+import { fetchBloggerPost } from "./api/content";
+import { TITLE_FULL } from "../content/metadata";
 
 export type HomePageProps = {
-  eventsList: Event[];
-  content: SiteContent;
+  aboutSection: string;
 }
 
 export async function getServerSideProps() {
-  async function fetchEvents(): Promise<Event[]> {
-    const events = await fetchEventsApi();
-    return filterAndOrderDates(events);
-  }
-
-  const [eventsList, content] = await Promise.all([fetchEvents(), fetchSiteContent()]);
+  const aboutSection = await fetchBloggerPost('about');
 
   return {
     props: {
-      eventsList,
-      content
+      aboutSection
     }
   }
 }
@@ -33,7 +25,7 @@ export default function Home(props: HomePageProps) {
     <div>
       <main>
         <Canvas />
-        <Slideshow title={props.content.name} />
+        <Slideshow title={TITLE_FULL} />
         <Sidebar>
           <Main {...props} />
         </Sidebar>

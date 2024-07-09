@@ -9,7 +9,7 @@ const CALENDAR_EVENTS_ENDPOINT = `https://www.googleapis.com/calendar/v3/calenda
 
 type ResponseData = Event[];
 
-export async function fetchEventsApi() {
+export async function fetchGoogleCalendarEvents() {
   try {
     const response = await fetch(CALENDAR_EVENTS_ENDPOINT, {
       method: 'GET',
@@ -29,6 +29,6 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const events = await fetchEventsApi();
+  const events = await fetchGoogleCalendarEvents();
   res.status(200).json(events);
 }

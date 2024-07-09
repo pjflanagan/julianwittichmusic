@@ -22,14 +22,18 @@ function chronological(a: Event, b: Event): number {
   return getTimezonedDate(a.end).diff(getTimezonedDate(b.end));
 }
 
+// this function is run on a server in the eastern timezone (same as the Google Calendar)
+// so we don't apply the timezone when filtering, we just use the absolute time
+function eventEndsAfterTime(time: Moment): (event: Event) => boolean {
+  return (event: Event) => {
+    const eventEndTime = moment(event.end.dateTime);
+    return eventEndTime.isAfter(time);
+  }
+}
+
 export function filterAndOrderDates(fullEventsList: Event[]): Event[] {
-  const currentTime = moment();
+  const eventEndsAfterCurrentTime = eventEndsAfterTime(moment());
   return fullEventsList
-    .filter((event) => {
-      // this function is run on a server in the eastern timezone (same as the google calendar)
-      // so we don't apply the timezone when filtering
-      const eventEndTime = moment(event.end.dateTime);
-      return eventEndTime.isAfter(currentTime);
-    })
+    .filter(eventEndsAfterCurrentTime)
     .sort(chronological);
 }

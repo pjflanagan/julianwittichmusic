@@ -9,7 +9,7 @@ A musician website featuring events, bio, a contact section, and a strumable bas
 
 The calendar can be updated on [Google Calendar](https://calendar.google.com/calendar/u/0?cid=OGUzNTBmMTdhNzRhN2RiZDg0ZWI1OWFmNWI5YzJlODVlNjRkY2Q4ZTZjMmQ2ZWNmMWRkZGZmNjliMTk0YTZhZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t). When adding an event, be sure to format the information correctly:
 
-<!-- - **Timezone**: TODO: -->
+- **Timezone**: If your event takes place outside of the America/New York timezone then be sure to set this.
 - **Title**: Enter the name of the event venue.
 - **Time**: Only the start time is displayed. The event will be displayed until the end time is reached.
 - **Location**: Optionally enter the URL of a details or ticketing page.
