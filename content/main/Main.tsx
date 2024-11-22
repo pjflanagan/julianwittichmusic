@@ -1,6 +1,6 @@
+import { lazy, Suspense } from "react";
 import {
   SocialIconRow,
-  EventsList,
   FooterSection,
   Section,
 } from "../../components";
@@ -9,16 +9,11 @@ import {
 } from '../../components/scroll-down-button';
 import { HomePageProps } from '../../pages/index';
 import { SUBTITLE, TITLE_FULL } from "../metadata";
-import { useLoadContactSection } from "./useLoadContactSection";
+const SidebarBelowTheFold = lazy(() => import("./SidebarBelowTheFold"));
 
 import Style from "./style.module.scss";
-import { useLoadEventsSection } from "./useLoadEventsSection";
 
-export function Main({ aboutSection }: HomePageProps) {
-
-  // CONSIDER: loading animation
-  const { eventsList, eventsDefaultSection } = useLoadEventsSection();
-  const { contactSection } = useLoadContactSection();
+export function Main(props: HomePageProps) {
 
   return (
     <>
@@ -36,21 +31,9 @@ export function Main({ aboutSection }: HomePageProps) {
         </div>
       </Section>
       <hr className={Style["intro-divider"]} />
-      <Section className={Style["events"]} id="events">
-        <h2>Events</h2>
-        {eventsList.length === 0 && eventsDefaultSection && (
-          <div dangerouslySetInnerHTML={{ __html: eventsDefaultSection || '' }} />
-        )}
-        <EventsList eventsList={eventsList} />
-      </Section>
-      <Section className={Style["about"]} id="about">
-        <h2>About</h2>
-        <div dangerouslySetInnerHTML={{ __html: aboutSection || '' }} />
-      </Section>
-      <Section className={Style["contact"]} id="contact">
-        <h2>Contact</h2>
-        <div dangerouslySetInnerHTML={{ __html: contactSection || '' }} />
-      </Section>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SidebarBelowTheFold {...props} />
+      </Suspense>
       <hr />
       <FooterSection />
     </>

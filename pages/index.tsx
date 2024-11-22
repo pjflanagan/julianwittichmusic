@@ -2,9 +2,9 @@ import React from "react";
 import { Canvas } from "../components/canvas";
 import { Sidebar } from "../components/sidebar";
 import { Slideshow } from "../components/slideshow";
-import { Main } from "../content";
 import { fetchBloggerPost } from "./api/content";
 import { TITLE_FULL } from "../content/metadata";
+import { Main } from "../content";
 
 export type HomePageProps = {
   aboutSection: string;
