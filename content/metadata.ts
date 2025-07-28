@@ -1,7 +1,7 @@
 
 export const TITLE = 'Julian Wittich';
-export const TITLE_FULL = 'Julian B. Wittich';
-export const SUBTITLE = 'Jazz Bassist performing in NYC';
+export const TITLE_FULL = 'Julian Wittich 紀安';
+export const SUBTITLE = 'NYC Jazz Bassist';
 
 export const SEO_KEYWORDS = [
   'jazz',

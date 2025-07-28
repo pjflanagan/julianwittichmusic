@@ -36,7 +36,10 @@ Site analytics are tracked on [Google Analytics](https://analytics.google.com). 
 
 ### Local Dev
 
-Install and run the local Netlify server. You may have to run `nvm use` first.
+1. Clone the repo
+2. Install with `npm i`
+3. Run the local Netlify server (you may have to run `nvm use` first)
+4. To see content, you will have to recreate a `.env` file using the keys found on Netlify
 
 ```
 $ netlify dev
