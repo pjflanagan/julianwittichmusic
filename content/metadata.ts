@@ -1,45 +1,24 @@
-
-export const TITLE = 'Julian Wittich';
-export const TITLE_FULL = 'Julian Wittich 紀安';
-export const SUBTITLE = 'NYC Jazz Bassist';
+export const TITLE = 'Ridge & Rail Renovations';
+export const TITLE_FULL = 'Ridge & Rail Renovations';
+export const SUBTITLE = 'Licensed General Contractor · Portland, OR';
 
 export const SEO_KEYWORDS = [
-  'jazz',
-  'musician',
-  'jazz musician',
-  'music',
-  'jazz music',
-  'jazzy',
-  'MSM',
-  'msm',
-  'm.s.m.',
-  'M.S.M.',
-  'Manhattan School of Music',
-  'Julian Wittich',
-  'Julian',
-  'Wittich',
-  'Julian B. Wittich',
-  'jazz bassist',
-  'jazz bass player',
-  'bassist',
-  'bass player',
-  'double bass',
-  'double bass player',
-  'upright bass',
-  'upright bass player',
-  'bass',
-  'the bass',
-  'New York City',
-  'Taipei',
-  'Taiwan',
-  'The Netherlands',
-  'Conservatorium van Amsterdam',
-  'composer',
-  'musical',
-  'double bass',
-  'style'
+  'contractor',
+  'renovation',
+  'remodel',
+  'kitchen remodel',
+  'bathroom renovation',
+  'flooring installation',
+  'deck builder',
+  'basement finishing',
+  'interior painting',
+  'Portland contractor',
+  'Portland renovation',
+  'home improvement Portland',
+  'Ridge Rail Renovations',
+  'licensed contractor Oregon',
+  'CCB licensed contractor',
 ].join(', ');
 
-export const SEO_DESCRIPTION = `
-  Julian Wittich is a NYC based jazz musician specializing in the double bass.
-`;
+export const SEO_DESCRIPTION =
+  'Ridge & Rail Renovations — licensed general contractor serving the Portland metro area. Kitchen remodels, bathroom renovations, flooring, decks, basement finishing, and painting.';

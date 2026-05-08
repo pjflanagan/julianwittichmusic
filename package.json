@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "@next/third-parties": "^14.2.4",
     "animated-scroll-to": "^2.3.0",
     "classnames": "^2.5.1",

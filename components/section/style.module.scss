@@ -1,37 +1,29 @@
 @import '../../styles/theme.module.scss';
 
-$section-padding: 24px;
+$section-padding: 48px 24px;
 
 .section {
-  padding: 0 $section-padding calc($section-padding / 2) $section-padding;
+  padding: $section-padding;
+  max-width: $section-max-width;
+  margin: 0 auto;
 
   &#footer {
-    padding-top: $section-padding;
-    padding-bottom: $section-padding;
+    padding-top: 24px;
+    padding-bottom: 24px;
     text-align: center;
     font-size: 0.82em;
-    color: #fff3;
+    color: $text-muted;
+    border-top: 1px solid $border;
+    max-width: 100%;
 
     p {
       margin: 4px 0;
-
-      a {
-        color: #fff3;
-
-        &:hover {
-          color: #fff4;
-        }
-      }
     }
   }
 }
 
-@media only screen and (min-width: $md-breakpoint) {
+@media (min-width: $md-breakpoint) {
   .section {
-    padding: 24px 0 0 !important;
-
-    &#footer {
-      padding-bottom: 24px !important;
-    }
+    padding: 64px 48px;
   }
 }

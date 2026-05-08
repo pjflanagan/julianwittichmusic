@@ -7,74 +7,62 @@
   background: $selection;
 }
 
-html, body {
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-  background: $background-dark;
-  color: $string-color;
-  // font-family: 'Inter', sans-serif;
-  // font-weight: 200;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  // <weight>: Use a value from 100 to 700
-  font-weight: 200;
-  font-style: normal;
-}
-
-div {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-h1 {
-  margin: 24px 0 18px 0;
-  text-align: center;
-  font-size: 2.8em;
+html, body {
+  margin: 0;
+  padding: 0;
+  background: $background;
+  color: $text;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5 {
   font-weight: 700;
-  color: $accent-blue;
+  color: $text;
+  margin: 0 0 8px;
 }
 
 h2 {
-  margin: 12px 0 6px 0;
   font-size: 1.8em;
-  font-weight: 500;
-  color: $accent-blue;
+  border-bottom: 2px solid $accent;
+  padding-bottom: 8px;
+  display: inline-block;
+  margin-bottom: 24px;
 }
 
-h4 { // subheading
-  margin: 6px 0 24px 0;
-  text-align: center;
-  font-size: 0.92em;
-  font-weight: 200;
+h3 {
+  font-size: 1.15em;
 }
 
 p {
-  line-height: 1.6em;
+  line-height: 1.7;
   font-size: 0.96em;
+  margin: 0 0 12px;
+}
 
-  a {
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $accent-dark;
     text-decoration: underline;
   }
 }
 
-a {
-  transition: color 0.2s;
-  color: $accent-blue;
-
-  &:hover {
-    color: $accent-blue-dark;
-  }
+strong {
+  font-weight: 600;
 }
 
 hr {
-  width: calc(240px / 4);
-  height: calc(72px / 4);
   border: none;
-  background: url(/img/icon/f-hole.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  // background: $string-color-transparent;
-  // background: $gold-gradient;
-  opacity: 0.28;
+  border-top: 1px solid $border;
+  margin: 40px 0;
 }

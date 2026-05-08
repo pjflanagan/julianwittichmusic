@@ -1,44 +1,20 @@
-// $background: #1d2731;
-// this is the color of the Spotify player
-$background: #282828;
-$background-dark: #080300;
-$background-dark-transparent: #08030069;
-$background-dark-less-transparent: #08030086;
-$string-color: #f3f3ed;
-$string-color-transparent: #f3f3ed44;
-$string-color-less-transparent: #f3f3eda1;
-$gold-gradient: radial-gradient(ellipse farthest-corner at right bottom, #fedb37 0%, #FDB931 8%, #d49e27 30%, #cda11d 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #f5f2a8 0%, #FFFFAC 8%, #D1B464 25%, #be9d13 62.5%, #baa316 100%);
-$accent-blue: #93cbfe;
-$accent-blue-dark: #5397d5;
-$selection: #93cbfe57;
+$background: #f7f4f0;
+$background-dark: #1e1e1e;
+$surface: #ffffff;
+$text: #2c2c2c;
+$text-muted: #777777;
+$accent: #b87333;
+$accent-dark: #8a561d;
+$border: #e0d8cf;
+$selection: rgba(184, 115, 51, 0.25);
 
 $md-breakpoint: 720px;
-
-$guitar-string-width: 2px;
-$guitar-string-gap: 12px;
-$guitar-max-offset-x: 26px;
-$guitar-string-count: 4;
-$guitar-neck-width: calc(
-  $guitar-string-count * $guitar-string-width
-    + ($guitar-string-count - 1) * $guitar-string-gap
-);
-$guitar-position-x-percent: 58vw;
-
-$sidebar-padding: $guitar-max-offset-x;
-$sidebar-guitar-offset: calc($sidebar-padding / 2);
-$sidebar-left: calc($guitar-position-x-percent + ($guitar-neck-width / 2 + $sidebar-guitar-offset)/1);
+$lg-breakpoint: 1100px;
+$section-max-width: 1100px;
 
 :export {
   background: $background;
   backgroundDark: $background-dark;
-  stringColor: $string-color;
-
-  guitarStringWidth: $guitar-string-width;
-  guitarStringGap: $guitar-string-gap;
-  guitarStringCount: $guitar-string-count;
-  guitarNeckWidth: $guitar-neck-width;
-  guitarMaxOffsetX: $guitar-max-offset-x;
-  guitarPositionXPercent: $guitar-position-x-percent;
-
-  sidebarGuitarOffset: $sidebar-guitar-offset;
+  accent: $accent;
+  mdBreakpoint: $md-breakpoint;
 }
