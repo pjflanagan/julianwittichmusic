@@ -8,7 +8,7 @@ export function SocialIconRow() {
       <Link
         target="_blank"
         title="Spotify"
-        href="https://open.spotify.com/artist/64mWZmWHfA6SoxqoibbwbR?si=WggJ-PvlTq-3A-EVLXcg8Q"
+        href="https://open.spotify.com/artist/2DLrJtoB773vtjT3FCXqBa?si=fZGUa77uQMGQ5VPZ7BFSyw"
       >
         <img width="24" alt="Spotify" src="/img/icon/icons8-spotify-48.png" />
       </Link>

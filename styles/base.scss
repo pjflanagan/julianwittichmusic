@@ -32,6 +32,9 @@ h1 {
   font-size: 2.8em;
   font-weight: 700;
   color: $accent-blue;
+  // keep the CJK name (紀安) from breaking across lines, while still
+  // allowing a break at the space before it
+  word-break: keep-all;
 }
 
 h2 {

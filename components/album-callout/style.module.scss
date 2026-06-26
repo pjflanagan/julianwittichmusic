@@ -1,0 +1,107 @@
+@import '../../styles/theme.module.scss';
+
+$callout-pulse-color: rgba($string-color, 0.55);
+
+@keyframes callout-pulse {
+  0% {
+    box-shadow: 0 2px 12px #0006, 0 0 0 0 $callout-pulse-color;
+  }
+  70% {
+    box-shadow: 0 2px 12px #0006, 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 2px 12px #0006, 0 0 0 0 transparent;
+  }
+}
+
+a.album-callout {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 10000;
+  // mobile: sit just above the scroll-down arrow
+  // (the arrow holder is at top: calc(100vh - 240px), i.e. 240px up from the bottom)
+  top: auto;
+  bottom: 252px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 80%;
+  height: 60px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: rgba($accent-blue, 0.64);
+  backdrop-filter: blur(6px);
+  color: $background-dark;
+  text-decoration: none;
+  box-shadow: 0 2px 12px #0006;
+  animation: callout-pulse 2s ease-out infinite;
+
+  &:hover {
+    background: rgba($accent-blue-dark, 0.88);
+    color: $background-dark;
+    animation-play-state: paused;
+  }
+
+  img.artwork {
+    height: 44px;
+    width: 44px;
+    margin-right: 14px;
+    object-fit: cover;
+  }
+
+  div.text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+
+    span.eyebrow {
+      font-size: 0.72em;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    span.title {
+      font-size: 1.3em;
+      font-weight: 700;
+    }
+  }
+}
+
+@media only screen and (min-width: $md-breakpoint) {
+  a.album-callout {
+    // desktop: header is hidden, so pin it to the top, larger
+    top: 12px;
+    bottom: auto;
+    max-width: 480px;
+    height: 80px;
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    img.artwork {
+      height: 60px;
+      width: 60px;
+      margin-right: 16px;
+    }
+
+    div.text {
+      span.eyebrow {
+        font-size: 0.82em;
+        margin-bottom: 8px;
+      }
+
+      span.title {
+        font-size: 1.6em;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.album-callout {
+    animation: none;
+  }
+}

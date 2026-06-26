@@ -1,3 +1,4 @@
+export * from './album-callout';
 export * from './canvas';
 export * from './sidebar';
 export * from './slideshow';

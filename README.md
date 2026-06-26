@@ -3,6 +3,9 @@
 
 A musician website featuring events, bio, a contact section, and a strumable bass.
 
+- https://julianwittich.com
+- https://julianwittichmusic.netlify.app
+
 ## Edit Content
 
 ### Calendar
@@ -31,6 +34,10 @@ The site's copy is managed through a few blog posts on [Blogger](https://www.blo
 <!-- ## Monitor
 
 Site analytics are tracked on [Google Analytics](https://analytics.google.com). -->
+
+## Domain Management
+
+The `julianwittich.com` domain is managed on Squarespace.
 
 ## Development
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { AlbumCallout } from "../components/album-callout";
 import { Canvas } from "../components/canvas";
 import { Sidebar } from "../components/sidebar";
 import { Slideshow } from "../components/slideshow";
@@ -24,6 +25,7 @@ export default function Home(props: HomePageProps) {
   return (
     <div>
       <main>
+        <AlbumCallout />
         <Canvas />
         <Slideshow title={TITLE_FULL} />
         <Sidebar>
