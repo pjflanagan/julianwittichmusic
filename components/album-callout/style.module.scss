@@ -17,7 +17,7 @@ $callout-pulse-color: rgba($string-color, 0.55);
 a.album-callout {
   display: flex;
   align-items: center;
-  position: fixed;
+  position: absolute;
   z-index: 10000;
   // mobile: sit just above the scroll-down arrow
   // (the arrow holder is at top: calc(100vh - 240px), i.e. 240px up from the bottom)
@@ -73,9 +73,13 @@ a.album-callout {
 
 @media only screen and (min-width: $md-breakpoint) {
   a.album-callout {
-    // desktop: header is hidden, so pin it to the top, larger
-    top: 12px;
-    bottom: auto;
+    // desktop: centered horizontally within the slideshow image, near the bottom
+    position: fixed;
+    top: auto;
+    bottom: 16%;
+    left: 0;
+    right: calc(100vw - #{$sidebar-left});
+    width: calc(#{$sidebar-left} * 0.6);
     max-width: 480px;
     height: 80px;
     padding: 10px 20px;
